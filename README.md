@@ -8,7 +8,9 @@ To compile all the application execute "./Allwmake.sh" in the terminal.
 To clean every solver "./Allwclean.sh" in the terminal.
 
 ## How to cite
-If you use the codes in this repository, please cite the following papers:
+If you use the codes in this repository, please cite the papers:
+
+- ROM4FOAM: see here (put link to docs). The .bib file is reported below.
 
 ```{=latex}
 @article{INTROINI2023115773,
