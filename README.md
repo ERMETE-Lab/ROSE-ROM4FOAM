@@ -4,7 +4,7 @@ This repository collects the codes for Hybrid Data Assimilation and Reduced Orde
 
 ## Installation notes
 
-To compile all the application execute "./Allwmake.sh" in the terminal.
+To compile all the applications, execute "./Allwmake.sh" in the terminal.
 To clean every solver "./Allwclean.sh" in the terminal.
 
 ## How to cite
