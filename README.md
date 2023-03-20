@@ -10,7 +10,13 @@ To clean every solver "./Allwclean.sh" in the terminal.
 ## How to cite
 If you use the codes in this repository, please cite the papers:
 
-- ROM4FOAM: see here (put link to docs). The .bib file is reported below.
+[1] Carolina Introini, Simone Cavalleri, Stefano Lorenzi, Stefano Riva, and An- tonio Cammi. Stabilization of Generalized Empirical Interpolation Method (GEIM) in presence of noise: A novel approach based on Tikhonov regulariza-
+tion. Computer Methods in Applied Mechanics and Engineering, 404:115773, 2023. doi:https://doi.org/10.1016/j.cma.2022.115773.
+[2] Carolina Introini, Stefano Riva, Stefano Lorenzi, Simone Cavalleri, and Antonio Cammi. Non-intrusive system state reconstruction from indirect measurements: A novel approach based on hybrid data assimilation methods. Annals of Nuclear Energy, 182:109538, 2023. doi:https://doi.org/10. 1016/j.anucene.2022.109538.
+[3] Stefano Riva, Carolina Introini, Stefano Lorenzi, and Antonio Cammi. Hybrid Data Assimilation Methods (Part I): Numerical Comparison be- tween GEIM and PBDW. SSRN Electronic Journal, 11 2022. doi: 10.2139/ssrn.4313614.
+[4] Stefano Riva, Carolina Introini, Stefano Lorenzi, and Antonio Cammi. Hybrid Data Assimilation Methods (Part II): Application to the Dynasty Experimen- tal Facility. SSRN Electronic Journal, 11 2022. doi:10.2139/ssrn.4313612.
+
+here listed in bibtex format:
 
 ```{=latex}
 @article{INTROINI2023115773,
