@@ -12,9 +12,9 @@ If you use the codes in this repository, please cite the papers:
 
 1. Carolina Introini, Simone Cavalleri, Stefano Lorenzi, Stefano Riva, and An- tonio Cammi. Stabilization of Generalized Empirical Interpolation Method (GEIM) in presence of noise: A novel approach based on Tikhonov regulariza-
 tion. Computer Methods in Applied Mechanics and Engineering, 404:115773, 2023. doi: https://doi.org/10.1016/j.cma.2022.115773.
-2. Carolina Introini, Stefano Riva, Stefano Lorenzi, Simone Cavalleri, and Antonio Cammi. Non-intrusive system state reconstruction from indirect measurements: A novel approach based on hybrid data assimilation methods. Annals of Nuclear Energy, 182:109538, 2023. doi:https://doi.org/10.1016/j.anucene.2022.109538.
-3. Stefano Riva, Carolina Introini, Stefano Lorenzi, and Antonio Cammi. Hybrid Data Assimilation Methods (Part I): Numerical Comparison be- tween GEIM and PBDW. SSRN Electronic Journal, 11 2022. doi: https://doi.org/10.2139/ssrn.4313614.
-4. Stefano Riva, Carolina Introini, Stefano Lorenzi, and Antonio Cammi. Hybrid Data Assimilation Methods (Part II): Application to the Dynasty Experimen- tal Facility. SSRN Electronic Journal, 11 2022. doi: https://doi.org/10.2139/ssrn.4313612.
+2. Carolina Introini, Stefano Riva, Stefano Lorenzi, Simone Cavalleri, and Antonio Cammi. Non-intrusive system state reconstruction from indirect measurements: A novel approach based on hybrid data assimilation methods. Annals of Nuclear Energy, 182:109538, 2023. doi: https://doi.org/10.1016/j.anucene.2022.109538.
+3. Stefano Riva, C. Introini, S. Lorenzi, and A. Cammi, “Hybrid data assimilation methods, Part I: Numerical comparison between GEIM and PBDW,” Annals of Nuclear Energy, vol. 190, p. 109864, 2023. doi: https://doi.org/10.1016/j.anucene.2023.109864.
+4. Stefano Riva, Carolina Introini, Stefano Lorenzi, and Antonio Cammi. Hybrid Data Assimilation Methods (Part II): Application to the Dynasty Experimental Facility. SSRN Electronic Journal, 11 2022. doi: https://doi.org/10.2139/ssrn.4313612.
 
 Here listed in bibtex format:
 
@@ -45,16 +45,17 @@ author = {Carolina Introini and Stefano Riva and Stefano Lorenzi and Simone Cava
 keywords = {Indirect reconstruction, GEIM, POD-I, Reduced order modelling, Data assimilation},
 }
 
-@article{RIVA2023_partI,
-title = {{Hybrid Data Assimilation methods (Part I): numerical comparison between GEIM and PBDW}},
-journal = {submitted to Annals of Nuclear Energy},
-volume = {},
-pages = {},
+@article{RIVA2023109864,
+title = {Hybrid data assimilation methods, Part I: Numerical comparison between GEIM and PBDW},
+journal = {Annals of Nuclear Energy},
+volume = {190},
+pages = {109864},
 year = {2023},
-issn = {},
-doi = {},
-url = {},
+issn = {0306-4549},
+doi = {https://doi.org/10.1016/j.anucene.2023.109864},
+url = {https://www.sciencedirect.com/science/article/pii/S0306454923001834},
 author = {Stefano Riva and Carolina Introini and Stefano Lorenzi and Antonio Cammi},
+keywords = {GEIM, PBDW, Model order reduction, Data assimilation, Thermal hydraulics},
 }
 
 @article{RIVA2023_partII,
