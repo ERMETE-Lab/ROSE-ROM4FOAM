@@ -2,12 +2,7 @@
 
 This repository collects the codes for Hybrid Data Assimilation and Reduced Order Modelling Techniques for OpenFOAM.
 
-## Installation notes
-
-To compile all the applications, execute `./Allwmake.sh` in the terminal.
-To clean every solver `./Allwclean.sh` in the terminal.
-
-Otherwise, change the directory to the desired application to compile and execute `wmake`.
+In each folder, some instructions on how to use the code are reported. Further details in the [docs](https://rose-polimi.github.io/ROSE-docs/intro.html).
 
 ## How to cite
 If you use the codes in this repository, please cite the papers:
@@ -73,6 +68,13 @@ keywords = {GEIM, PBDW, Indirect Reconstruction, Model Order Reduction, Data Ass
 }
 
 ```
+
+## Installation notes
+
+To compile all the applications, execute `./Allwmake.sh` in the terminal.
+To clean every solver `./Allwclean.sh` in the terminal.
+
+Otherwise, change the directory to the desired application to compile and execute `wmake`.
 
 ## Structure of the repository
 
