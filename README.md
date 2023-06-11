@@ -4,17 +4,18 @@ This repository collects the codes for Hybrid Data Assimilation and Reduced Orde
 
 ## Installation notes
 
-To compile all the applications, execute "./Allwmake.sh" in the terminal.
-To clean every solver "./Allwclean.sh" in the terminal.
+To compile all the applications, execute `./Allwmake.sh` in the terminal.
+To clean every solver `./Allwclean.sh` in the terminal.
+
+Otherwise, change the directory to the desired application to compile and execute `wmake`.
 
 ## How to cite
 If you use the codes in this repository, please cite the papers:
 
-1. Carolina Introini, Simone Cavalleri, Stefano Lorenzi, Stefano Riva, and An- tonio Cammi. Stabilization of Generalized Empirical Interpolation Method (GEIM) in presence of noise: A novel approach based on Tikhonov regulariza-
-tion. Computer Methods in Applied Mechanics and Engineering, 404:115773, 2023. doi: https://doi.org/10.1016/j.cma.2022.115773.
-2. Carolina Introini, Stefano Riva, Stefano Lorenzi, Simone Cavalleri, and Antonio Cammi. Non-intrusive system state reconstruction from indirect measurements: A novel approach based on hybrid data assimilation methods. Annals of Nuclear Energy, 182:109538, 2023. doi: https://doi.org/10.1016/j.anucene.2022.109538.
-3. Stefano Riva, C. Introini, S. Lorenzi, and A. Cammi, “Hybrid data assimilation methods, Part I: Numerical comparison between GEIM and PBDW,” Annals of Nuclear Energy, vol. 190, p. 109864, 2023. doi: https://doi.org/10.1016/j.anucene.2023.109864.
-4. Stefano Riva, Carolina Introini, Stefano Lorenzi, and Antonio Cammi. Hybrid Data Assimilation Methods (Part II): Application to the Dynasty Experimental Facility. SSRN Electronic Journal, 11 2022. doi: https://doi.org/10.2139/ssrn.4313612.
+1. Carolina Introini, Simone Cavalleri, Stefano Lorenzi, Stefano Riva, and An- tonio Cammi. Stabilization of Generalized Empirical Interpolation Method (GEIM) in presence of noise: A novel approach based on Tikhonov regularization. Computer Methods in Applied Mechanics and Engineering, 404:115773, 2023. doi: [https://doi.org/10.1016/j.cma.2022.115773](https://doi.org/10.1016/j.cma.2022.115773).
+2. Carolina Introini, Stefano Riva, Stefano Lorenzi, Simone Cavalleri, and Antonio Cammi. Non-intrusive system state reconstruction from indirect measurements: A novel approach based on hybrid data assimilation methods. Annals of Nuclear Energy, 182:109538, 2023. doi: [https://doi.org/10.1016/j.anucene.2022.109538](https://doi.org/10.1016/j.anucene.2022.109538).
+3. Stefano Riva, C. Introini, S. Lorenzi, and A. Cammi, “Hybrid data assimilation methods, Part I: Numerical comparison between GEIM and PBDW”, Annals of Nuclear Energy, vol. 190, p. 109864, 2023. doi: [https://doi.org/10.1016/j.anucene.2023.109864](https://doi.org/10.1016/j.anucene.2023.109864).
+4. Stefano Riva, C. Introini, S. Lorenzi, and A. Cammi, “Hybrid data assimilation methods, Part II: Application to the DYNASTY experimental facility”, Annals of Nuclear Energy, vol. 190, p. 109863, 2023. doi: [https://doi.org/10.1016/j.anucene.2023.109864](https://doi.org/10.1016/j.anucene.2023.109863).
 
 Here listed in bibtex format:
 
@@ -58,16 +59,17 @@ author = {Stefano Riva and Carolina Introini and Stefano Lorenzi and Antonio Cam
 keywords = {GEIM, PBDW, Model order reduction, Data assimilation, Thermal hydraulics},
 }
 
-@article{RIVA2023_partII,
-title = {{Hybrid Data Assimilation methods (Part II): application to the DYNASTY experimental facility}},
-journal = {submitted to Annals of Nuclear Energy},
-volume = {},
-pages = {},
+@article{RIVA2023109863,
+title = {Hybrid Data Assimilation methods, Part II: Application to the DYNASTY experimental facility},
+journal = {Annals of Nuclear Energy},
+volume = {190},
+pages = {109863},
 year = {2023},
-issn = {},
-doi = {},
-url = {},
+issn = {0306-4549},
+doi = {https://doi.org/10.1016/j.anucene.2023.109863},
+url = {https://www.sciencedirect.com/science/article/pii/S0306454923001822},
 author = {Stefano Riva and Carolina Introini and Stefano Lorenzi and Antonio Cammi},
+keywords = {GEIM, PBDW, Indirect Reconstruction, Model Order Reduction, Data Assimilation, DYNASTY},
 }
 
 ```
