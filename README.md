@@ -71,8 +71,14 @@ keywords = {GEIM, PBDW, Indirect Reconstruction, Model Order Reduction, Data Ass
 
 ## Installation notes
 
-To compile all the applications, execute `./Allwmake.sh` in the terminal.
-To clean every solver `./Allwclean.sh` in the terminal.
+To compile all the applications, execute in the terminal
+```{bash}
+bash ./Allwmake.sh
+````
+To clean every solver, execute in the terminal
+```{bash}
+bash ./Allwclean.sh
+````
 
 Otherwise, change the directory to the desired application to compile and execute `wmake`.
 
