@@ -53,7 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Introduction" href="chap01_ROM4FOAM/Introduction.html" />
+    <link rel="next" title="Introduction" href="usage/Introduction.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -112,18 +112,18 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  ROAM4FOAM
+  How to use the solvers?
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="chap01_ROM4FOAM/Introduction.html">
+  <a class="reference internal" href="usage/Introduction.html">
    Introduction
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chap01_ROM4FOAM/Tutorials/BuoyantCavity/problem.html">
-   Differentially Heated Cavity
+  <a class="reference internal" href="usage/POD.html">
+   POD - Proper Orthogonal Decomposition
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -132,20 +132,40 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/Tutorials/BuoyantCavity/offline.html">
-     Offline Phase
+    <a class="reference internal" href="usage/PODfolder/ScalarPOD_Offline.html">
+     Scalar Field: Offline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/Tutorials/BuoyantCavity/online.html">
-     Online Phase
+    <a class="reference internal" href="usage/PODfolder/ScalarPOD_Online.html">
+     Scalar Field: Online
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage/PODfolder/ScalarPODInterp_Online.html">
+     Scalar Field: Interpolation Online
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage/PODfolder/VectorialPOD_Offline.html">
+     Vectorial Field: Offline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage/PODfolder/VectorialPOD_Online.html">
+     Vectorial Field: Online
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage/PODfolder/VectorialPODInterp_Online.html">
+     Vectorial Field: Interpolation Online
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chap01_ROM4FOAM/POD.html">
-   POD - Proper Orthogonal Decomposition
+  <a class="reference internal" href="usage/EIM.html">
+   EIM - Empirical Interpolation Method
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -154,40 +174,30 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PODfolder/ScalarPOD_Offline.html">
+    <a class="reference internal" href="usage/EIMfolder/ScalarEIM_Offline.html">
      Scalar Field: Offline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PODfolder/ScalarPOD_Online.html">
+    <a class="reference internal" href="usage/EIMfolder/ScalarEIM_Online.html">
      Scalar Field: Online
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PODfolder/ScalarPODInterp_Online.html">
-     Scalar Field: Interpolation Online
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PODfolder/VectorialPOD_Offline.html">
+    <a class="reference internal" href="usage/EIMfolder/VectorialEIM_Offline.html">
      Vectorial Field: Offline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PODfolder/VectorialPOD_Online.html">
-     Vectorial Field: Online
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PODfolder/VectorialPODInterp_Online.html">
-     Vectorial Field: Interpolation Online
+    <a class="reference internal" href="usage/EIMfolder/VectorialEIM_Online.html">
+     Vectorial Field: Offline
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chap01_ROM4FOAM/EIM.html">
-   EIM - Empirical Interpolation Method
+  <a class="reference internal" href="usage/GEIM.html">
+   GEIM - Generalised Empirical Interpolation Method
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -196,30 +206,25 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/EIMfolder/ScalarEIM_Offline.html">
+    <a class="reference internal" href="usage/GEIMfolder/ScalarGEIM_Offline.html">
      Scalar Field: Offline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/EIMfolder/ScalarEIM_Online.html">
+    <a class="reference internal" href="usage/GEIMfolder/ScalarGEIM_Online.html">
      Scalar Field: Online
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/EIMfolder/VectorialEIM_Offline.html">
-     Vectorial Field: Offline
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/EIMfolder/VectorialEIM_Online.html">
-     Vectorial Field: Offline
+    <a class="reference internal" href="usage/GEIMfolder/ScalarTR-GEIM.html">
+     Scalar Field: Online - Tikhonov
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chap01_ROM4FOAM/GEIM.html">
-   GEIM - Generalised Empirical Interpolation Method
+  <a class="reference internal" href="usage/GEIM-VT.html">
+   GEIM-VT - Generalised Empirical Interpolation Method Vectorial Treatment
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
@@ -228,25 +233,25 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/GEIMfolder/ScalarGEIM_Offline.html">
-     Scalar Field: Offline
+    <a class="reference internal" href="usage/GEIM-VTfolder/GEIM-VT_Offline.html">
+     Offline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/GEIMfolder/ScalarGEIM_Online.html">
-     Scalar Field: Online
+    <a class="reference internal" href="usage/GEIM-VTfolder/GEIM-VT_Online.html">
+     Online
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/GEIMfolder/ScalarTR-GEIM.html">
-     Scalar Field: Online - Tikhonov
+    <a class="reference internal" href="usage/GEIM-VTfolder/TR-GEIM-VT.html">
+     Online - Tikhonov
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chap01_ROM4FOAM/GEIM-VT.html">
-   GEIM-VT - Generalised Empirical Interpolation Method Vectorial Treatment
+  <a class="reference internal" href="usage/PBDW.html">
+   PBDW - Parameterised-Background Data-Weak formulation
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -255,25 +260,27 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/GEIM-VTfolder/GEIM-VT_Offline.html">
-     Offline
+    <a class="reference internal" href="usage/PBDWfolder/ScalarPBDW_Offline.html">
+     Scalar Field: Offline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/GEIM-VTfolder/GEIM-VT_Online.html">
-     Online
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/GEIM-VTfolder/TR-GEIM-VT.html">
-     Online - Tikhonov
+    <a class="reference internal" href="usage/PBDWfolder/ScalarPBDW_Online.html">
+     Scalar Field: Online
     </a>
    </li>
   </ul>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chap01_ROM4FOAM/PBDW.html">
-   PBDW - Parameterised-Background Data-Weak formulation
+  <a class="reference internal" href="Tutorials/BuoyantCavity/problem.html">
+   Differentially Heated Cavity
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -282,13 +289,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PBDWfolder/ScalarPBDW_Offline.html">
-     Scalar Field: Offline
+    <a class="reference internal" href="Tutorials/BuoyantCavity/offline.html">
+     Offline Phase
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PBDWfolder/ScalarPBDW_Online.html">
-     Scalar Field: Online
+    <a class="reference internal" href="Tutorials/BuoyantCavity/online.html">
+     Online Phase
     </a>
    </li>
   </ul>
@@ -572,11 +579,9 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="reduced-order-multi-physics-data-driven-framework-rose">
 <h1>Reduced Order multi-phySics data-drivEn framework (ROSE)<a class="headerlink" href="#reduced-order-multi-physics-data-driven-framework-rose" title="Permalink to this heading">#</a></h1>
 <p><strong>Authors</strong>: Stefano Riva and Dr. Carolina Introini</p>
-<p>This book collects some documentation for the codes of the ROSE repositories, including theoretical background and the basic theory of Reduced Order Modelling.</p>
-<p>The repositories documented includes codes for <a class="reference external" href="https://openfoam.org/version/6/">OpenFOAM-v6</a>.</p>
-<p>This work has been carried out at the <a class="reference external" href="https://www.nuclearenergy.polimi.it">Nuclear Reactors Group</a> at <a class="reference external" href="https://polimi.it">Politecnico di Milano</a>, under the supervision of Prof. Antonio Cammi and Prof. Stefano Lorenzi.</p>
+<p>This book collects some documentation and tutorials for the ROM4FOAM library built in <a class="reference external" href="https://openfoam.org/version/6/">OpenFOAM-v6</a>, including a brief theoretical background of the theory of Reduced Order Modelling.</p>
+<p>This work has been carried out at the <a class="reference external" href="https://www.nuclearenergy.polimi.it">Nuclear Reactors Group</a> at <a class="reference external" href="https://polimi.it">Politecnico di Milano</a>, under the supervision of Prof. Antonio Cammi.</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="_images/NRG_logo.png"><img alt="NRGlogo" class="bg-primary mb-1 align-center" src="_images/NRG_logo.png" style="width: 200px;" /></a>
-<p>The book is organised in different parts related to the programming language employed.</p>
 <hr class="docutils" />
 <section id="how-to-cite-rom4foam">
 <h2>How to cite ROM4FOAM<a class="headerlink" href="#how-to-cite-rom4foam" title="Permalink to this heading">#</a></h2>
@@ -592,15 +597,20 @@ title="Print to PDF"
 <section id="table-of-contents">
 <h2>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this heading">#</a></h2>
 <div class="toctree-wrapper compound">
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">ROAM4FOAM</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">How to use the solvers?</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="chap01_ROM4FOAM/Introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap01_ROM4FOAM/Tutorials/BuoyantCavity/problem.html">Differentially Heated Cavity</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap01_ROM4FOAM/POD.html">POD - Proper Orthogonal Decomposition</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap01_ROM4FOAM/EIM.html">EIM - Empirical Interpolation Method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap01_ROM4FOAM/GEIM.html">GEIM - Generalised Empirical Interpolation Method</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap01_ROM4FOAM/GEIM-VT.html">GEIM-VT - Generalised Empirical Interpolation Method Vectorial Treatment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chap01_ROM4FOAM/PBDW.html">PBDW - Parameterised-Background Data-Weak formulation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/Introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/POD.html">POD - Proper Orthogonal Decomposition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/EIM.html">EIM - Empirical Interpolation Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/GEIM.html">GEIM - Generalised Empirical Interpolation Method</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/GEIM-VT.html">GEIM-VT - Generalised Empirical Interpolation Method Vectorial Treatment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/PBDW.html">PBDW - Parameterised-Background Data-Weak formulation</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Tutorials/BuoyantCavity/problem.html">Differentially Heated Cavity</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
@@ -617,8 +627,8 @@ title="Print to PDF"
 <section id="reduced-basis-methods">
 <h3>Reduced Basis Methods<a class="headerlink" href="#reduced-basis-methods" title="Permalink to this heading">#</a></h3>
 <p>Among all ROM methods, Reduced Basis (RB) <span id="id3">[<a class="reference internal" href="biblio.html#id12" title="Denise Degen, Karen Veroy, and Florian Wellmann. Certified reduced basis method in geosciences. Computational Geosciences, 24:1-19, 02 2020. doi:10.1007/s10596-019-09916-6.">6</a>, <a class="reference internal" href="biblio.html#id11" title="Jan S Hesthaven, Gianluigi Rozza, and Benjamin Stamm. Certified Reduced Basis Methods for Parametrized Partial Differential Equations. Springer International Publishing, 2016. doi:10.1007/978-3-319-22470-1.">9</a>, <a class="reference internal" href="biblio.html#id10" title="Alfio Quarteroni and Gianluigi Rozza. Reduced Order Methods for Modeling and Computational Reduction. Springer International Publishing, 2014. doi:10.1007/978-3-319-02090-7.">18</a>]</span> are a well-established and widely used class of ROM techniques, which are based on an offline-online paradigm. In the offline stage, a set of RB functions <span class="math notranslate nohighlight">\(\phi_n(\mathbf{x})\)</span> are derived from an ensemble of high-fidelity solutions, called <em>snapshots</em>, yielding a low dimensional space that retains the main features of the full-order model. Different approaches can be used to construct the reduced basis, such as the <strong>greedy</strong> algorithms <span id="id4">[<a class="reference internal" href="biblio.html#id13" title="Yvon Maday. Reduced basis method for the rapid and reliable solution of partial differential equations. November 2006. Preprint. URL: https://hal.archives-ouvertes.fr/hal-00112152.">13</a>]</span> and the <strong>POD</strong> <span id="id5">[<a class="reference internal" href="biblio.html#id14" title="G Berkooz, P Holmes, and J L Lumley. The proper orthogonal decomposition in the analysis of turbulent flows. Annual Review of Fluid Mechanics, 25(1):539–575, jan 1993. doi:10.1146/annurev.fl.25.010193.002543.">3</a>]</span>. Regardless of the construction strategy, an approximation of the high-fidelity solution is sought during the online stage as a linear combination of the RB functions, i.e.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b2d04517-baee-460a-907f-bfc376c9875e">
-<span class="eqno">(1)<a class="headerlink" href="#equation-b2d04517-baee-460a-907f-bfc376c9875e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b17c40a4-392a-47ac-8a86-49ff7617f471">
+<span class="eqno">(1)<a class="headerlink" href="#equation-b17c40a4-392a-47ac-8a86-49ff7617f471" title="Permalink to this equation">#</a></span>\[\begin{equation}
 u(\mathbf{x}\;\,\mu) \simeq \sum_{n=1}^N\alpha_n(\mu)\cdot \phi_n(\mathbf{x})
 \end{equation}\]</div>
 <p>According to the methodology for calculating the expansion coefficients <span class="math notranslate nohighlight">\(\alpha_n(\mu)\)</span>(also called reduced coefficients) of the approximation, RB methods are classified into two categories: <em>intrusive</em> and <em>non-intrusive</em> RB methods.</p>
@@ -664,7 +674,7 @@ u(\mathbf{x}\;\,\mu) \simeq \sum_{n=1}^N\alpha_n(\mu)\cdot \phi_n(\mathbf{x})
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='right-next' id="next-link" href="chap01_ROM4FOAM/Introduction.html" title="next page">
+    <a class='right-next' id="next-link" href="usage/Introduction.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Introduction</p>

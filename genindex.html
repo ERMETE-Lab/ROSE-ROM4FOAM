@@ -108,18 +108,18 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
-  ROAM4FOAM
+  How to use the solvers?
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="chap01_ROM4FOAM/Introduction.html">
+  <a class="reference internal" href="usage/Introduction.html">
    Introduction
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chap01_ROM4FOAM/Tutorials/BuoyantCavity/problem.html">
-   Differentially Heated Cavity
+  <a class="reference internal" href="usage/POD.html">
+   POD - Proper Orthogonal Decomposition
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -128,20 +128,40 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/Tutorials/BuoyantCavity/offline.html">
-     Offline Phase
+    <a class="reference internal" href="usage/PODfolder/ScalarPOD_Offline.html">
+     Scalar Field: Offline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/Tutorials/BuoyantCavity/online.html">
-     Online Phase
+    <a class="reference internal" href="usage/PODfolder/ScalarPOD_Online.html">
+     Scalar Field: Online
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage/PODfolder/ScalarPODInterp_Online.html">
+     Scalar Field: Interpolation Online
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage/PODfolder/VectorialPOD_Offline.html">
+     Vectorial Field: Offline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage/PODfolder/VectorialPOD_Online.html">
+     Vectorial Field: Online
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="usage/PODfolder/VectorialPODInterp_Online.html">
+     Vectorial Field: Interpolation Online
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chap01_ROM4FOAM/POD.html">
-   POD - Proper Orthogonal Decomposition
+  <a class="reference internal" href="usage/EIM.html">
+   EIM - Empirical Interpolation Method
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
@@ -150,40 +170,30 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PODfolder/ScalarPOD_Offline.html">
+    <a class="reference internal" href="usage/EIMfolder/ScalarEIM_Offline.html">
      Scalar Field: Offline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PODfolder/ScalarPOD_Online.html">
+    <a class="reference internal" href="usage/EIMfolder/ScalarEIM_Online.html">
      Scalar Field: Online
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PODfolder/ScalarPODInterp_Online.html">
-     Scalar Field: Interpolation Online
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PODfolder/VectorialPOD_Offline.html">
+    <a class="reference internal" href="usage/EIMfolder/VectorialEIM_Offline.html">
      Vectorial Field: Offline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PODfolder/VectorialPOD_Online.html">
-     Vectorial Field: Online
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PODfolder/VectorialPODInterp_Online.html">
-     Vectorial Field: Interpolation Online
+    <a class="reference internal" href="usage/EIMfolder/VectorialEIM_Online.html">
+     Vectorial Field: Offline
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chap01_ROM4FOAM/EIM.html">
-   EIM - Empirical Interpolation Method
+  <a class="reference internal" href="usage/GEIM.html">
+   GEIM - Generalised Empirical Interpolation Method
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
@@ -192,30 +202,25 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/EIMfolder/ScalarEIM_Offline.html">
+    <a class="reference internal" href="usage/GEIMfolder/ScalarGEIM_Offline.html">
      Scalar Field: Offline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/EIMfolder/ScalarEIM_Online.html">
+    <a class="reference internal" href="usage/GEIMfolder/ScalarGEIM_Online.html">
      Scalar Field: Online
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/EIMfolder/VectorialEIM_Offline.html">
-     Vectorial Field: Offline
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/EIMfolder/VectorialEIM_Online.html">
-     Vectorial Field: Offline
+    <a class="reference internal" href="usage/GEIMfolder/ScalarTR-GEIM.html">
+     Scalar Field: Online - Tikhonov
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chap01_ROM4FOAM/GEIM.html">
-   GEIM - Generalised Empirical Interpolation Method
+  <a class="reference internal" href="usage/GEIM-VT.html">
+   GEIM-VT - Generalised Empirical Interpolation Method Vectorial Treatment
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
   <label for="toctree-checkbox-4">
@@ -224,25 +229,25 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/GEIMfolder/ScalarGEIM_Offline.html">
-     Scalar Field: Offline
+    <a class="reference internal" href="usage/GEIM-VTfolder/GEIM-VT_Offline.html">
+     Offline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/GEIMfolder/ScalarGEIM_Online.html">
-     Scalar Field: Online
+    <a class="reference internal" href="usage/GEIM-VTfolder/GEIM-VT_Online.html">
+     Online
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/GEIMfolder/ScalarTR-GEIM.html">
-     Scalar Field: Online - Tikhonov
+    <a class="reference internal" href="usage/GEIM-VTfolder/TR-GEIM-VT.html">
+     Online - Tikhonov
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chap01_ROM4FOAM/GEIM-VT.html">
-   GEIM-VT - Generalised Empirical Interpolation Method Vectorial Treatment
+  <a class="reference internal" href="usage/PBDW.html">
+   PBDW - Parameterised-Background Data-Weak formulation
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
@@ -251,25 +256,27 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/GEIM-VTfolder/GEIM-VT_Offline.html">
-     Offline
+    <a class="reference internal" href="usage/PBDWfolder/ScalarPBDW_Offline.html">
+     Scalar Field: Offline
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/GEIM-VTfolder/GEIM-VT_Online.html">
-     Online
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/GEIM-VTfolder/TR-GEIM-VT.html">
-     Online - Tikhonov
+    <a class="reference internal" href="usage/PBDWfolder/ScalarPBDW_Online.html">
+     Scalar Field: Online
     </a>
    </li>
   </ul>
  </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="chap01_ROM4FOAM/PBDW.html">
-   PBDW - Parameterised-Background Data-Weak formulation
+  <a class="reference internal" href="Tutorials/BuoyantCavity/problem.html">
+   Differentially Heated Cavity
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -278,13 +285,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PBDWfolder/ScalarPBDW_Offline.html">
-     Scalar Field: Offline
+    <a class="reference internal" href="Tutorials/BuoyantCavity/offline.html">
+     Offline Phase
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="chap01_ROM4FOAM/PBDWfolder/ScalarPBDW_Online.html">
-     Scalar Field: Online
+    <a class="reference internal" href="Tutorials/BuoyantCavity/online.html">
+     Online Phase
     </a>
    </li>
   </ul>
