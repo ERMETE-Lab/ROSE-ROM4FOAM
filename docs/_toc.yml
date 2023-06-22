@@ -1,0 +1,53 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+parts:
+
+  - caption: ROAM4FOAM
+    chapters: 
+      - file: chap01_ROM4FOAM/Introduction.md
+
+      - file: chap01_ROM4FOAM/Tutorials/BuoyantCavity/problem.md
+        sections:
+          - file: chap01_ROM4FOAM/Tutorials/BuoyantCavity/offline.ipynb
+          - file: chap01_ROM4FOAM/Tutorials/BuoyantCavity/online.ipynb
+
+      - file: chap01_ROM4FOAM/POD
+        sections:
+          - file: chap01_ROM4FOAM/PODfolder/ScalarPOD_Offline.md
+          - file: chap01_ROM4FOAM/PODfolder/ScalarPOD_Online.md
+          - file: chap01_ROM4FOAM/PODfolder/ScalarPODInterp_Online.md
+          - file: chap01_ROM4FOAM/PODfolder/VectorialPOD_Offline.md
+          - file: chap01_ROM4FOAM/PODfolder/VectorialPOD_Online.md
+          - file: chap01_ROM4FOAM/PODfolder/VectorialPODInterp_Online.md
+
+      - file: chap01_ROM4FOAM/EIM
+        sections:
+          - file: chap01_ROM4FOAM/EIMfolder/ScalarEIM_Offline.md
+          - file: chap01_ROM4FOAM/EIMfolder/ScalarEIM_Online.md
+          - file: chap01_ROM4FOAM/EIMfolder/VectorialEIM_Offline.md
+          - file: chap01_ROM4FOAM/EIMfolder/VectorialEIM_Online.md
+
+      - file: chap01_ROM4FOAM/GEIM
+        sections:
+          - file: chap01_ROM4FOAM/GEIMfolder/ScalarGEIM_Offline.md
+          - file: chap01_ROM4FOAM/GEIMfolder/ScalarGEIM_Online.md
+          - file: chap01_ROM4FOAM/GEIMfolder/ScalarTR-GEIM.md
+
+      - file: chap01_ROM4FOAM/GEIM-VT
+        sections:
+          - file: chap01_ROM4FOAM/GEIM-VTfolder/GEIM-VT_Offline.md
+          - file: chap01_ROM4FOAM/GEIM-VTfolder/GEIM-VT_Online.md
+          - file: chap01_ROM4FOAM/GEIM-VTfolder/TR-GEIM-VT.md
+
+      - file: chap01_ROM4FOAM/PBDW
+        sections:
+          - file: chap01_ROM4FOAM/PBDWfolder/ScalarPBDW_Offline.md
+          - file: chap01_ROM4FOAM/PBDWfolder/ScalarPBDW_Online.md
+
+  - caption: Appendix
+    chapters:
+      - file: biblio
