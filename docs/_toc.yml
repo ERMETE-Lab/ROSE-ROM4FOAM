@@ -6,47 +6,49 @@ root: intro
 
 parts:
 
-  - caption: ROAM4FOAM
+  - caption: How to use the solvers?
     chapters: 
-      - file: chap01_ROM4FOAM/Introduction.md
+      - file: usage/Introduction.md
 
-      - file: chap01_ROM4FOAM/Tutorials/BuoyantCavity/problem.md
+      - file: usage/POD
         sections:
-          - file: chap01_ROM4FOAM/Tutorials/BuoyantCavity/offline.ipynb
-          - file: chap01_ROM4FOAM/Tutorials/BuoyantCavity/online.ipynb
+          - file: usage/PODfolder/ScalarPOD_Offline.md
+          - file: usage/PODfolder/ScalarPOD_Online.md
+          - file: usage/PODfolder/ScalarPODInterp_Online.md
+          - file: usage/PODfolder/VectorialPOD_Offline.md
+          - file: usage/PODfolder/VectorialPOD_Online.md
+          - file: usage/PODfolder/VectorialPODInterp_Online.md
 
-      - file: chap01_ROM4FOAM/POD
+      - file: usage/EIM
         sections:
-          - file: chap01_ROM4FOAM/PODfolder/ScalarPOD_Offline.md
-          - file: chap01_ROM4FOAM/PODfolder/ScalarPOD_Online.md
-          - file: chap01_ROM4FOAM/PODfolder/ScalarPODInterp_Online.md
-          - file: chap01_ROM4FOAM/PODfolder/VectorialPOD_Offline.md
-          - file: chap01_ROM4FOAM/PODfolder/VectorialPOD_Online.md
-          - file: chap01_ROM4FOAM/PODfolder/VectorialPODInterp_Online.md
+          - file: usage/EIMfolder/ScalarEIM_Offline.md
+          - file: usage/EIMfolder/ScalarEIM_Online.md
+          - file: usage/EIMfolder/VectorialEIM_Offline.md
+          - file: usage/EIMfolder/VectorialEIM_Online.md
 
-      - file: chap01_ROM4FOAM/EIM
+      - file: usage/GEIM
         sections:
-          - file: chap01_ROM4FOAM/EIMfolder/ScalarEIM_Offline.md
-          - file: chap01_ROM4FOAM/EIMfolder/ScalarEIM_Online.md
-          - file: chap01_ROM4FOAM/EIMfolder/VectorialEIM_Offline.md
-          - file: chap01_ROM4FOAM/EIMfolder/VectorialEIM_Online.md
+          - file: usage/GEIMfolder/ScalarGEIM_Offline.md
+          - file: usage/GEIMfolder/ScalarGEIM_Online.md
+          - file: usage/GEIMfolder/ScalarTR-GEIM.md
 
-      - file: chap01_ROM4FOAM/GEIM
+      - file: usage/GEIM-VT
         sections:
-          - file: chap01_ROM4FOAM/GEIMfolder/ScalarGEIM_Offline.md
-          - file: chap01_ROM4FOAM/GEIMfolder/ScalarGEIM_Online.md
-          - file: chap01_ROM4FOAM/GEIMfolder/ScalarTR-GEIM.md
+          - file: usage/GEIM-VTfolder/GEIM-VT_Offline.md
+          - file: usage/GEIM-VTfolder/GEIM-VT_Online.md
+          - file: usage/GEIM-VTfolder/TR-GEIM-VT.md
 
-      - file: chap01_ROM4FOAM/GEIM-VT
+      - file: usage/PBDW
         sections:
-          - file: chap01_ROM4FOAM/GEIM-VTfolder/GEIM-VT_Offline.md
-          - file: chap01_ROM4FOAM/GEIM-VTfolder/GEIM-VT_Online.md
-          - file: chap01_ROM4FOAM/GEIM-VTfolder/TR-GEIM-VT.md
+          - file: usage/PBDWfolder/ScalarPBDW_Offline.md
+          - file: usage/PBDWfolder/ScalarPBDW_Online.md
 
-      - file: chap01_ROM4FOAM/PBDW
+  - caption: Tutorials
+    chapters: 
+      - file: Tutorials/BuoyantCavity/problem.md
         sections:
-          - file: chap01_ROM4FOAM/PBDWfolder/ScalarPBDW_Offline.md
-          - file: chap01_ROM4FOAM/PBDWfolder/ScalarPBDW_Online.md
+          - file: Tutorials/BuoyantCavity/offline.ipynb
+          - file: Tutorials/BuoyantCavity/online.ipynb
 
   - caption: Appendix
     chapters:

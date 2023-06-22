@@ -2,11 +2,9 @@
 
 **Authors**: Stefano Riva and Dr. Carolina Introini
 
-This book collects some documentation for the codes of the ROSE repositories, including theoretical background and the basic theory of Reduced Order Modelling.
+This book collects some documentation and tutorials for the ROM4FOAM library built in [OpenFOAM-v6](https://openfoam.org/version/6/), including a brief theoretical background of the theory of Reduced Order Modelling.
 
-The repositories documented includes codes for [OpenFOAM-v6](https://openfoam.org/version/6/).
-
-This work has been carried out at the [Nuclear Reactors Group](https://www.nuclearenergy.polimi.it) at [Politecnico di Milano](https://polimi.it), under the supervision of Prof. Antonio Cammi and Prof. Stefano Lorenzi.
+This work has been carried out at the [Nuclear Reactors Group](https://www.nuclearenergy.polimi.it) at [Politecnico di Milano](https://polimi.it), under the supervision of Prof. Antonio Cammi.
 
 ```{image} images/NRG_logo.png
 :alt: NRGlogo
@@ -14,8 +12,6 @@ This work has been carried out at the [Nuclear Reactors Group](https://www.nucle
 :width: 200px
 :align: center
 ```
-
-The book is organised in different parts related to the programming language employed.
 
 ---
 
@@ -33,7 +29,6 @@ If you are going to use ROM4FOAM in your research work, please cite the followin
 ## Table of contents
 ```{tableofcontents}
 ```
-
 ---
 
 ## What is Reduced Order Modelling?
