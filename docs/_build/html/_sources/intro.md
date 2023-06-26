@@ -1,10 +1,8 @@
-# Reduced Order multi-phySics data-drivEn framework (ROSE)
+# Reduced Order Modelling for OpenFoam (ROM4FOAM)
 
 **Authors**: Stefano Riva and Dr. Carolina Introini
 
-This book collects some documentation and tutorials for the ROM4FOAM library built in [OpenFOAM-v6](https://openfoam.org/version/6/), including a brief theoretical background of the theory of Reduced Order Modelling.
-
-This work has been carried out at the [Nuclear Reactors Group](https://www.nuclearenergy.polimi.it) at [Politecnico di Milano](https://polimi.it), under the supervision of Prof. Antonio Cammi.
+This book collects some documentation and tutorials for the ROM4FOAM library built in [OpenFOAM-v6](https://openfoam.org/version/6/), including a brief theoretical background of the theory of Reduced Order Modelling. This library is part of the Reduced Order multi-phySics data-drivEn ([ROSE](https://github.com/ROSE-Polimi)) framework. This work has been carried out at the [Nuclear Reactors Group](https://www.nuclearenergy.polimi.it) at [Politecnico di Milano](https://polimi.it), under the supervision of Dr. Stefano Lorenzi and Prof. Antonio Cammi.
 
 ```{image} images/NRG_logo.png
 :alt: NRGlogo
@@ -13,7 +11,6 @@ This work has been carried out at the [Nuclear Reactors Group](https://www.nucle
 :align: center
 ```
 
----
 
 ## How to cite ROM4FOAM
 
@@ -26,25 +23,22 @@ If you are going to use ROM4FOAM in your research work, please cite the followin
 
 ---
 
-## Table of contents
-```{tableofcontents}
-```
----
-
 ## What is Reduced Order Modelling?
 Reduced Order Modelling (ROM) {cite}`Quarteroni2016, MadayChapter2020, Degen2020_conference` offers new opportunities both to integrate the model with experimental data in real-time and to define methods of sensor positioning, by providing efficient tools to compress the prior knowledge about the system coming from the parametrized mathematical model into low-dimensional forms. In literature, the expression ROM is used to identify any approach aimed to replace the High-Fidelity (HF) or Full Order (FOM) mathematical model with one, featuring a much lower complexity. Therefore these techniques are suited to every situation that requires fast simulation, such as real-time state estimation and multi-query applications, e.g. optimization, uncertainty quantification and inverse problems {cite}`Guo_Veroy2021, Degen2022`.
 
 ### Reduced Basis Methods
 Among all ROM methods, Reduced Basis (RB) {cite}`Quarteroni2014, Hesthaven2016, Degen2020_certifiedRB` are a well-established and widely used class of ROM techniques, which are based on an offline-online paradigm. In the offline stage, a set of RB functions $\phi_n(\mathbf{x})$ are derived from an ensemble of high-fidelity solutions, called *snapshots*, yielding a low dimensional space that retains the main features of the full-order model. Different approaches can be used to construct the reduced basis, such as the **greedy** algorithms {cite}`Maday2006` and the **POD** {cite}`Berkooz1993`. Regardless of the construction strategy, an approximation of the high-fidelity solution is sought during the online stage as a linear combination of the RB functions, i.e.
-\begin{equation}
+\begin{equation*}
 u(\mathbf{x}\;\,\mu) \simeq \sum_{n=1}^N\alpha_n(\mu)\cdot \phi_n(\mathbf{x})
-\end{equation}
+\end{equation*}
 According to the methodology for calculating the expansion coefficients $\alpha_n(\mu)$(also called reduced coefficients) of the approximation, RB methods are classified into two categories: *intrusive* and *non-intrusive* RB methods.
 
 - *Intrusive*: the governing equations of the physical system, to which the snapshots are solution, must be known and used during the online step. From a set of PDEs a rather small system of ODEs is derived, typically using a Galerkin projection.
 - *Non-Intrusive*: the governing equations knowledge is not required, a more data-driven approach is followed.
 
 This project mainly focuses on the latter since they can be easier extended to the use of real experimental data.
+
+---
 
 ## Hybrid Data Assimilation techniques
 

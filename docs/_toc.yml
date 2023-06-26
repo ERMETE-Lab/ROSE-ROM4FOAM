@@ -10,45 +10,45 @@ parts:
     chapters: 
       - file: usage/Introduction.md
 
-      - file: usage/POD
-        sections:
-          - file: usage/PODfolder/ScalarPOD_Offline.md
-          - file: usage/PODfolder/ScalarPOD_Online.md
-          - file: usage/PODfolder/ScalarPODInterp_Online.md
-          - file: usage/PODfolder/VectorialPOD_Offline.md
-          - file: usage/PODfolder/VectorialPOD_Online.md
-          - file: usage/PODfolder/VectorialPODInterp_Online.md
+  #     - file: usage/POD
+  #       sections:
+  #         - file: usage/PODfolder/ScalarPOD_Offline.md
+  #         - file: usage/PODfolder/ScalarPOD_Online.md
+  #         - file: usage/PODfolder/ScalarPODInterp_Online.md
+  #         - file: usage/PODfolder/VectorialPOD_Offline.md
+  #         - file: usage/PODfolder/VectorialPOD_Online.md
+  #         - file: usage/PODfolder/VectorialPODInterp_Online.md
 
-      - file: usage/EIM
-        sections:
-          - file: usage/EIMfolder/ScalarEIM_Offline.md
-          - file: usage/EIMfolder/ScalarEIM_Online.md
-          - file: usage/EIMfolder/VectorialEIM_Offline.md
-          - file: usage/EIMfolder/VectorialEIM_Online.md
+  #     - file: usage/EIM
+  #       sections:
+  #         - file: usage/EIMfolder/ScalarEIM_Offline.md
+  #         - file: usage/EIMfolder/ScalarEIM_Online.md
+  #         - file: usage/EIMfolder/VectorialEIM_Offline.md
+  #         - file: usage/EIMfolder/VectorialEIM_Online.md
 
-      - file: usage/GEIM
-        sections:
-          - file: usage/GEIMfolder/ScalarGEIM_Offline.md
-          - file: usage/GEIMfolder/ScalarGEIM_Online.md
-          - file: usage/GEIMfolder/ScalarTR-GEIM.md
+  #     - file: usage/GEIM
+  #       sections:
+  #         - file: usage/GEIMfolder/ScalarGEIM_Offline.md
+  #         - file: usage/GEIMfolder/ScalarGEIM_Online.md
+  #         - file: usage/GEIMfolder/ScalarTR-GEIM.md
 
-      - file: usage/GEIM-VT
-        sections:
-          - file: usage/GEIM-VTfolder/GEIM-VT_Offline.md
-          - file: usage/GEIM-VTfolder/GEIM-VT_Online.md
-          - file: usage/GEIM-VTfolder/TR-GEIM-VT.md
+  #     - file: usage/GEIM-VT
+  #       sections:
+  #         - file: usage/GEIM-VTfolder/GEIM-VT_Offline.md
+  #         - file: usage/GEIM-VTfolder/GEIM-VT_Online.md
+  #         - file: usage/GEIM-VTfolder/TR-GEIM-VT.md
 
-      - file: usage/PBDW
-        sections:
-          - file: usage/PBDWfolder/ScalarPBDW_Offline.md
-          - file: usage/PBDWfolder/ScalarPBDW_Online.md
+  #     - file: usage/PBDW
+  #       sections:
+  #         - file: usage/PBDWfolder/ScalarPBDW_Offline.md
+  #         - file: usage/PBDWfolder/ScalarPBDW_Online.md
 
-  - caption: Tutorials
-    chapters: 
-      - file: Tutorials/BuoyantCavity/problem.md
-        sections:
-          - file: Tutorials/BuoyantCavity/offline.ipynb
-          - file: Tutorials/BuoyantCavity/online.ipynb
+  # - caption: Tutorials
+  #   chapters: 
+  #     - file: Tutorials/BuoyantCavity/problem.md
+  #       sections:
+  #         - file: Tutorials/BuoyantCavity/offline.ipynb
+  #         - file: Tutorials/BuoyantCavity/online.ipynb
 
   - caption: Appendix
     chapters:

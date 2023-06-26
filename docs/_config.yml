@@ -1,9 +1,10 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: ROSE
+title: ROM4FOAM's Docs
 author: Stefano Riva - Carolina Introini
-logo: images/logo.png
+copyright: "2023"
+logo: images/NRG_logo.png
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
