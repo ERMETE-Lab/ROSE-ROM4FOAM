@@ -1,6 +1,6 @@
 # GEIM-VT - Generalised Empirical Interpolation Method Vectorial Treatment
 
-The [Generalised Empirical Interpolation Method - Vectorial Treatment](https://link.springer.com/chapter/10.1007/978-88-470-2592-9_13) was presented in {cite}`Maday2015_GEIM`. In this repository, the algorithm is implemented in OpenFOAM, to scalar field only.
+The [Generalised Empirical Interpolation Method - Vectorial Treatment](https://link.springer.com/chapter/10.1007/978-88-470-2592-9_13) was presented in {cite}`Maday2015_GEIM`, a summary of the method can be found in {cite}`Introini2023_IR`. In this repository, the algorithm is implemented in OpenFOAM.
 
 There are 3 folders containing the version of the solver for scalar field:
 

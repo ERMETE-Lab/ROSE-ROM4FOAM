@@ -11,17 +11,9 @@ This book collects some documentation and tutorials for the ROM4FOAM library bui
 :align: center
 ```
 
-
-## How to cite ROM4FOAM
-
-If you are going to use ROM4FOAM in your research work, please cite the following articles:
-
-- C. Introini, S. Cavalleri, S. Lorenzi, S. Riva, and A. Cammi, “Stabilization of Generalized Empirical Interpolation Method (GEIM) in presence of noise: A novel approach based on Tikhonov regularization,” Computer Methods in Applied Mechanics and Engineering, vol. 404, p. 115773, 2023, [doi: 10.1016/j.cma.2022.115773](https://doi.org/10.1016/j.cma.2022.115773).
-- C. Introini, S. Riva, S. Lorenzi, S. Cavalleri, and A. Cammi, “Non-intrusive system state reconstruction from indirect measurements: A novel approach based on hybrid data assimilation methods,” Annals of Nuclear Energy, vol. 182, p. 109538, 2023, [doi: 10.1016/j.anucene.2022.109538](https://doi.org/10.1016/j.anucene.2022.109538).
-- S. Riva, C. Introini, S. Lorenzi, and A. Cammi, “Hybrid data assimilation methods, Part I: Numerical comparison between GEIM and PBDW,” Annals of Nuclear Energy, vol. 190, p. 109864, 2023, [https://doi.org/10.1016/j.anucene.2023.109864](https://doi.org/10.1016/j.anucene.2023.109864).
-- S. Riva, C. Introini, S. Lorenzi, and A. Cammi, “Hybrid data assimilation methods, Part II: Application to the DYNASTY experimental facility”, Annals of Nuclear Energy, vol. 190, p. 109863, 2023. doi: [https://doi.org/10.1016/j.anucene.2023.109864](https://doi.org/10.1016/j.anucene.2023.109864).
-
----
+## Table of Contents
+```{tableofcontents}
+```
 
 ## What is Reduced Order Modelling?
 Reduced Order Modelling (ROM) {cite}`Quarteroni2016, MadayChapter2020, Degen2020_conference` refers to any approach aimed to replace a High-Fidelity (HF) or Full Order (FOM) mathematical model with one, featuring a much lower complexity whilst keeping a desired level of accuracy. This set of techniques, developed originally for control theory, aims to study a dynamical system while preserving its input-output behaviour as much as possible. As the name suggests, ROM tries to reduce the dimension of the model to perform faster simulations while ensuring the preservation of the essential features of the physical phenomena. This set of methods can be used in different applications, especially in **multi-query** or **real-time** scenarios, e.g. optimization, uncertainty quantification and inverse problems {cite}`Guo_Veroy2021, Degen2022`.
@@ -55,3 +47,12 @@ The general structure of the HDA methods is reported in the figure below {cite}`
 :width: 1000px
 :align: center
 ```
+
+## How to cite ROM4FOAM
+
+If you are going to use ROM4FOAM in your research work, please cite the following articles:
+
+- C. Introini, S. Cavalleri, S. Lorenzi, S. Riva, and A. Cammi, “Stabilization of Generalized Empirical Interpolation Method (GEIM) in presence of noise: A novel approach based on Tikhonov regularization,” Computer Methods in Applied Mechanics and Engineering, vol. 404, p. 115773, 2023, [doi: 10.1016/j.cma.2022.115773](https://doi.org/10.1016/j.cma.2022.115773).
+- C. Introini, S. Riva, S. Lorenzi, S. Cavalleri, and A. Cammi, “Non-intrusive system state reconstruction from indirect measurements: A novel approach based on hybrid data assimilation methods,” Annals of Nuclear Energy, vol. 182, p. 109538, 2023, [doi: 10.1016/j.anucene.2022.109538](https://doi.org/10.1016/j.anucene.2022.109538).
+- S. Riva, C. Introini, S. Lorenzi, and A. Cammi, “Hybrid data assimilation methods, Part I: Numerical comparison between GEIM and PBDW,” Annals of Nuclear Energy, vol. 190, p. 109864, 2023, [https://doi.org/10.1016/j.anucene.2023.109864](https://doi.org/10.1016/j.anucene.2023.109864).
+- S. Riva, C. Introini, S. Lorenzi, and A. Cammi, “Hybrid data assimilation methods, Part II: Application to the DYNASTY experimental facility”, Annals of Nuclear Energy, vol. 190, p. 109863, 2023. doi: [https://doi.org/10.1016/j.anucene.2023.109864](https://doi.org/10.1016/j.anucene.2023.109864).

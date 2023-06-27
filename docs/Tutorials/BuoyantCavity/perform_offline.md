@@ -141,4 +141,4 @@ We are now ready to launch the PBDW solver for scalar field, by simply typing in
 ```bash
 ScalarPBDW_Offline
 ```
-The solver creates a folder, named `PBDW_T_WeakGreedy_s_0.0004` (in this case) containing the PBDW basis function and basis sensors, in addiction to some text files with the train error, the modal coefficients. For further details, see the specific `README.md` file for this solver. For the pressure $p$ it is sufficient to write *p* instead of *T* in the dict.
+The solver creates a folder, named `PBDW_T_WeakGreedy_s_0.0004` (in this case) containing the PBDW basis function and basis sensors, in addiction to some text files with the train error, the modal coefficients, output of the sensor placement algorithms. For further details, see the specific `README.md` file for this solver. For the pressure $p$ it is sufficient to write *p* instead of *T* in the dict.

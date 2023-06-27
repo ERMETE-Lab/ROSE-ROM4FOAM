@@ -46,7 +46,7 @@ Re\in[15,\,150]\qquad \qquad Ri\in[0.2, \,5]
 The geometrical domain has been discretized using a uniform $128\times 128$ grid and the steady-state solver for buoyant, laminar flow of incompressible fluids *buoyantBoussinesqSimpleFoam* has been used.
 
 ## Generation of the snapshots
-In the `Tutorials/BuoyantCavity` folder, there are a subfolder `BaseCase` and a script `allrun.py` which can be used to solve this problem for various values of $Re$ and $Ri$; in particular, it's possible to specify which solutions are desired. 
+In the `Tutorials/BuoyantCavity` folder, there are a subfolder `BaseCase` and a script [`allrun.py`](https://github.com/ROSE-Polimi/ROM4FOAM/blob/main/Tutorials/BuoyantCavity/allrun.py) which can be used to solve this problem for various values of $Re$ and $Ri$; in particular, it's possible to specify which solutions are desired. 
 
 The number of processor to be used can be set as well as the desired values of $Re $ and $Ri$, let us see how this works to generate the Train and Test set.
 

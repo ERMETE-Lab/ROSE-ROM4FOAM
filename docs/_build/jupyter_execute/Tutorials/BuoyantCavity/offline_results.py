@@ -138,7 +138,7 @@ plt.tight_layout()
 # \end{equation*}
 # given $\mathcal{I}_M$ the reconstruction operator using $M$ basis functions.
 # 
-# The POD, GEIM ($s^2=0.0004) and WeakGreedy are compared in terms of reconstruction absolute and relative with respect to the train set.
+# The POD, GEIM ($s^2=0.0004$) and WeakGreedy are compared in terms of reconstruction absolute and relative with respect to the train set.
 
 # In[11]:
 

@@ -93,8 +93,9 @@ The Basis Functions, Basis Sensors and all the other .txt files are saved in a s
 			max_relative_L2_error.txt	<---- Relative reconstruction error of the Train Set
 			max_absolute_L2_error.txt	<---- Absolute reconstruction error of the Train Set
 			(fieldName)_Coefficients.txt	<---- Reduced basis coefficients
-			(fieldName)_matrixB.txt			<---- Only for GEIM
-			(fieldName)_checkMatrix.txt			<---- matrix with (zeta_i, zeta_j)_L2 to check the orthonormality of the basis functions
+			(fieldName)matrixB.txt		<---- Only for GEIM
+			InfSupConstant.txt		<---- Only for SGREEDY
+			(fieldName)orthog_matrix.txt	<---- matrix with (zeta_i, zeta_j)_L2 to check the orthonormality of the basis functions
 ```
 
 The absolute and relative error are computed as
