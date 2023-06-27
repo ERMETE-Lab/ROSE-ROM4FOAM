@@ -2,7 +2,7 @@
 
 This repository collects the codes for Hybrid Data Assimilation and Reduced Order Modelling Techniques for [OpenFOAM-v6](https://openfoam.org/version/6/).
 
-In each folder, some instructions on how to use the code are reported. Further details in the [docs](https://rose-polimi.github.io/ROSE-docs/intro.html).
+In each folder, some instructions on how to use the code are reported. Further details in the [docs](https://rose-polimi.github.io/ROM4FOAM/intro.html).
 
 ## How to cite
 If you use the codes in this repository, please cite the papers:

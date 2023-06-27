@@ -47,7 +47,7 @@ With Hybrid Data Assimilation (HDA) the authors refer to a set of techniques, wh
 
 In particular, ROM is seen in a Data Assimilation (DA) framework {cite}`DataDrivenScience_book`, so that the theoretical prediction, approximated by ROM, is corrected or updated by experimental evaluations of some fields (e.g., the measure of the temperature in a pipe or the neutron flux in a nuclear reactor).
 
-The general structure of the HDA methods is reported in the figure below, the methods implemented in this repository can also help in finding the best locations for experimental sensors.
+The general structure of the HDA methods is reported in the figure below {cite}`Riva2023_Part1`, the methods implemented in this repository can also help in finding the best locations for experimental sensors.
 
 ```{image} ./images/HDA_algo.png
 :alt: HDA_algo

@@ -9,6 +9,15 @@ parts:
   - caption: How to use the solvers?
     chapters: 
       - file: usage/Introduction.md
+      - file: usage/installation_notes.md
+
+  - caption: Tutorials
+    chapters: 
+      - file: Tutorials/BuoyantCavity/problem.md
+        sections:
+            - file: Tutorials/BuoyantCavity/perform_offline.md
+            - file: Tutorials/BuoyantCavity/offline_results.ipynb
+  #         - file: Tutorials/BuoyantCavity/online_results.ipynb
 
   #     - file: usage/POD
   #       sections:
@@ -42,13 +51,6 @@ parts:
   #       sections:
   #         - file: usage/PBDWfolder/ScalarPBDW_Offline.md
   #         - file: usage/PBDWfolder/ScalarPBDW_Online.md
-
-  # - caption: Tutorials
-  #   chapters: 
-  #     - file: Tutorials/BuoyantCavity/problem.md
-  #       sections:
-  #         - file: Tutorials/BuoyantCavity/offline.ipynb
-  #         - file: Tutorials/BuoyantCavity/online.ipynb
 
   - caption: Appendix
     chapters:

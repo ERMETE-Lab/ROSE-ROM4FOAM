@@ -1,0 +1,628 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>How to perform the offline phase? &#8212; ROM4FOAM&#39;s Docs</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Results of the offline phase" href="offline_results.html" />
+    <link rel="prev" title="Differentially Heated Cavity" href="problem.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+      
+      <img src="../../_static/../../_static/NRG_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">ROM4FOAM's Docs</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Reduced Order Modelling for OpenFoam (ROM4FOAM)
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  How to use the solvers?
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../usage/Introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../usage/installation_notes.html">
+   Installation notes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="problem.html">
+   Differentially Heated Cavity
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     How to perform the offline phase?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="offline_results.html">
+     Results of the offline phase
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Appendix
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../biblio.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FTutorials/BuoyantCavity/perform_offline.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/Tutorials/BuoyantCavity/perform_offline.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pod">
+   POD
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eim">
+   EIM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geim">
+   GEIM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pbdw">
+   PBDW
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>How to perform the offline phase?</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pod">
+   POD
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#eim">
+   EIM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geim">
+   GEIM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pbdw">
+   PBDW
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="how-to-perform-the-offline-phase">
+<h1>How to perform the offline phase?<a class="headerlink" href="#how-to-perform-the-offline-phase" title="Permalink to this heading">#</a></h1>
+<p>Once the snapshots have been generated, the ROM can be executed to find the basis functions and/or the basis sensors.</p>
+<p>At first, open the terminal and set yourself in <code class="docutils literal notranslate"><span class="pre">Tutorials/BuoyantCavity/TrainSet</span></code> then (if you have used the same intervals for <span class="math notranslate nohighlight">\(Re\)</span> and <span class="math notranslate nohighlight">\(Ri\)</span> of the previous page) copy the folders’ list into the first folder, e.g.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cp<span class="w"> </span>train_folders.txt<span class="w"> </span>Case_000_Re15.00_Ri0.20/system/.
+</pre></div>
+</div>
+<p>To execute the offline algorithms, change directory to <code class="docutils literal notranslate"><span class="pre">Case_000_Re15.00_Ri0.20</span></code>. In this tutorial we are going to learn how to perform POD, EIM, GEIM and PBDW onto the scalar -<span class="math notranslate nohighlight">\(T, p\)</span>- and vector (when possible) -<span class="math notranslate nohighlight">\(\mathbf{u}\)</span>- fields.</p>
+<section id="pod">
+<h2>POD<a class="headerlink" href="#pod" title="Permalink to this heading">#</a></h2>
+<p>This algorithm is based on the Singular Value Decomposition (SVD) and it can be performed both for scalar and vector fields. The first thing we need to set up is the <strong>dictionary</strong> of the solver for POD as follows for <span class="math notranslate nohighlight">\(T\)</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Offline_parameters</span>
+<span class="p">{</span>
+    <span class="n">field</span>    <span class="n">T</span><span class="p">;</span>
+    <span class="n">accuracy</span>      <span class="mf">0.99999999999</span><span class="p">;</span>
+    <span class="n">maxBasis</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="n">foldersList</span>  <span class="p">(</span><span class="c1">#include &quot;train_folders.txt&quot;) ;</span>
+<span class="p">}</span> 
+</pre></div>
+</div>
+<p>We are now ready to launch the POD solver for scalar field, by simply typing in the terminal</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ScalarPOD_Offline
+</pre></div>
+</div>
+<p>The solver creates a folder, named <code class="docutils literal notranslate"><span class="pre">POD_T</span></code> (in this case) containing the POD modes and some text files with eigenvalues, the train error and the modal coefficients. For further details, see the specific <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file for this solver. For the pressure <span class="math notranslate nohighlight">\(p\)</span> it is sufficient to write <em>p</em> instead of <em>T</em> in the dict.</p>
+<p>For vector fields, the dictionary should be changed as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Offline_parameters</span>
+<span class="p">{</span>
+    <span class="n">field</span>    <span class="n">U</span><span class="p">;</span>
+    <span class="n">accuracy</span>      <span class="mf">0.99999999999</span><span class="p">;</span>
+    <span class="n">maxBasis</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="n">foldersList</span>  <span class="p">(</span><span class="c1">#include &quot;train_folders.txt&quot;) ;</span>
+<span class="p">}</span> 
+</pre></div>
+</div>
+<p>then, the vectorial solver must be launched</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>VectorPOD_Offline
+</pre></div>
+</div>
+</section>
+<section id="eim">
+<h2>EIM<a class="headerlink" href="#eim" title="Permalink to this heading">#</a></h2>
+<p>This algorithm can be performed both for scalar and vector fields. The first thing we need to set up is the <strong>dictionary</strong> of the solver for EIM as follows for <span class="math notranslate nohighlight">\(T\)</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Offline_parameters</span>
+<span class="p">{</span>
+    <span class="n">field</span>    <span class="n">T</span><span class="p">;</span>
+    <span class="n">error</span>      <span class="mf">1e-5</span><span class="p">;</span>
+    <span class="n">maxBasis</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="n">foldersList</span> <span class="p">(</span><span class="c1">#include &quot;train_folders.txt&quot;);</span>
+<span class="p">}</span> 
+</pre></div>
+</div>
+<p>We are now ready to launch the EIM solver for scalar field, by simply typing in the terminal</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ScalarEIM_Offline
+</pre></div>
+</div>
+<p>The solver creates a folder, named <code class="docutils literal notranslate"><span class="pre">EIM_T</span></code> (in this case) containing the EIM magic function and some text files with the train error, the modal coefficients, the Lebesgue constant <span class="math notranslate nohighlight">\(\Lambda_M\)</span> and the magic points (in <code class="docutils literal notranslate"><span class="pre">constant</span></code>). For further details, see the specific <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file for this solver. For the pressure <span class="math notranslate nohighlight">\(p\)</span> it is sufficient to write <em>p</em> instead of <em>T</em> in the dict.</p>
+<p>For vector fields, the dictionary should be changed as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Offline_parameters</span>
+<span class="p">{</span>
+    <span class="n">field</span>    <span class="n">U</span><span class="p">;</span>
+    <span class="n">error</span>      <span class="mf">1e-5</span><span class="p">;</span>
+    <span class="n">maxBasis</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="n">foldersList</span> <span class="p">(</span><span class="c1">#include &quot;train_folders.txt&quot;);</span>
+<span class="p">}</span> 
+</pre></div>
+</div>
+<p>then, the vectorial solver must be launched</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>VectorEIM_Offline
+</pre></div>
+</div>
+</section>
+<section id="geim">
+<h2>GEIM<a class="headerlink" href="#geim" title="Permalink to this heading">#</a></h2>
+<p>This algorithm can be performed for scalar fields only.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The extension to vector fields is a matter of future studies and development, see <span id="id1">[<a class="reference internal" href="../../biblio.html#id24" title="Carolina Introini. Advanced modelling and stability analysis for nuclear reactors. PhD thesis, Politecnico di Milano, 2021.">9</a>]</span>.</p>
+</div>
+<p>The first thing we need to set up is the <strong>dictionary</strong> of the solver for GEIM as follows for <span class="math notranslate nohighlight">\(T\)</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Offline_parameters</span>
+<span class="p">{</span>
+    <span class="n">field</span>      <span class="n">T</span><span class="p">;</span>
+    <span class="n">error</span>      <span class="mf">1e-8</span><span class="p">;</span>
+    <span class="n">MaxSensorsNumber</span> <span class="mi">50</span><span class="p">;</span>
+    <span class="n">SensorsVariance</span> <span class="mf">0.0001</span><span class="p">;</span>
+    <span class="n">foldersList</span> <span class="p">(</span><span class="c1">#include &quot;train_folders.txt&quot;) ;</span>
+    <span class="o">//</span><span class="n">SensorsPositions</span>
+<span class="p">}</span> 
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The input <code class="docutils literal notranslate"><span class="pre">SensorsVariance</span></code> is the parameter <span class="math notranslate nohighlight">\(s^2\)</span> of the Gaussian kernel centred in <span class="math notranslate nohighlight">\(\mathbf{x}_k\)</span> of the sensors, i.e.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+g_k = g(\mathbf{x}-\mathbf{x}_k; s) =\displaystyle \frac{e^{-\frac{\|{\mathbf{x}-\mathbf{x}_k}\|_2^2}{2s^2}}}{\displaystyle \int_\Omega e^{-\frac{\|{\mathbf{x}-\mathbf{x}_k}\|_2^2}{2s^2}}\, d\Omega}
+\end{equation*}\]</div>
+</div>
+<p>The input <code class="docutils literal notranslate"><span class="pre">SensorsPositions</span></code> is optional, if nothing is entered all the points in the mesh are used for the centers <span class="math notranslate nohighlight">\(\mathbf{x}_k\)</span>, otherwise only some locations are considered: the input would be as an example</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SensorsPositions</span> <span class="p">(</span>
+    <span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="p">(</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+    <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>We are now ready to launch the GEIM solver for scalar field, by simply typing in the terminal</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ScalarGEIM_Offline
+</pre></div>
+</div>
+<p>The solver creates a folder, named <code class="docutils literal notranslate"><span class="pre">GEIM_T</span></code> (in this case) containing the GEIM magic function and magic sensors, in addiction to some text files with the train error, the modal coefficients, their average and standard deviation (for TR-GEIM), the Lebesgue constant <span class="math notranslate nohighlight">\(\Lambda_M\)</span> and the GEIM matrix <span class="math notranslate nohighlight">\(B\)</span>. For further details, see the specific <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file for this solver. For the pressure <span class="math notranslate nohighlight">\(p\)</span> it is sufficient to write <em>p</em> instead of <em>T</em> in the dict.</p>
+</section>
+<section id="pbdw">
+<h2>PBDW<a class="headerlink" href="#pbdw" title="Permalink to this heading">#</a></h2>
+<p>This algorithm can be performed for scalar fields only.</p>
+<p>The first thing we need to set up is the <strong>dictionary</strong> of the solver for PBDW as follows for <span class="math notranslate nohighlight">\(T\)</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Offline_parameters</span>
+<span class="p">{</span>
+    <span class="n">field</span>      <span class="n">T</span><span class="p">;</span>
+    <span class="n">BasisNumber</span>   <span class="mi">50</span><span class="p">;</span>       <span class="o">//</span> <span class="n">maximum</span> <span class="n">size</span> <span class="n">of</span> <span class="n">the</span> <span class="n">reduced</span> <span class="n">basis</span>
+    <span class="n">foldersList</span> <span class="p">(</span><span class="c1">#include &quot;train_folders.txt&quot;) ;</span>
+    
+    <span class="o">//</span> <span class="n">The</span> <span class="n">following</span> <span class="n">are</span> <span class="n">specific</span> <span class="k">for</span> <span class="n">the</span> <span class="n">sensors</span><span class="p">;</span>
+    <span class="n">MaxSensorsNumber</span> <span class="mi">60</span><span class="p">;</span>    
+    <span class="n">SensorsVariance</span> <span class="mf">0.0004</span><span class="p">;</span>
+    <span class="o">/*</span>
+    <span class="n">SensorsPositions</span> 
+    <span class="p">(</span>
+		<span class="p">(</span><span class="mi">0</span> <span class="mf">3.09</span> <span class="mf">0.29</span><span class="p">)</span> 
+	<span class="p">);</span>
+    <span class="o">*/</span>
+<span class="p">}</span> 
+</pre></div>
+</div>
+<p>The PBDW is a general framework able to incorporate different methods to generate the basis functions and basis sensors. The default option is the Weak-Greedy coupled with SGREEDY.</p>
+<p>For the sensors, see the remarks made for GEIM.</p>
+<p>We are now ready to launch the PBDW solver for scalar field, by simply typing in the terminal</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ScalarPBDW_Offline
+</pre></div>
+</div>
+<p>The solver creates a folder, named <code class="docutils literal notranslate"><span class="pre">PBDW_T_WeakGreedy_s_0.0004</span></code> (in this case) containing the PBDW basis function and basis sensors, in addiction to some text files with the train error, the modal coefficients. For further details, see the specific <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file for this solver. For the pressure <span class="math notranslate nohighlight">\(p\)</span> it is sufficient to write <em>p</em> instead of <em>T</em> in the dict.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./Tutorials/BuoyantCavity"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="problem.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Differentially Heated Cavity</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="offline_results.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Results of the offline phase</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Stefano Riva - Carolina Introini<br/>
+  
+      &copy; Copyright 2023.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

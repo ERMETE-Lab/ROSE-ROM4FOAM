@@ -120,6 +120,40 @@ const thebe_selector_output = ".output, .cell_output"
    Introduction
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation_notes.html">
+   Installation notes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Tutorials/BuoyantCavity/problem.html">
+   Differentially Heated Cavity
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tutorials/BuoyantCavity/perform_offline.html">
+     How to perform the offline phase?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tutorials/BuoyantCavity/offline_results.html">
+     Results of the offline phase
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -313,7 +347,7 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="pod-proper-orthogonal-decomposition">
 <h1>POD - Proper Orthogonal Decomposition<a class="headerlink" href="#pod-proper-orthogonal-decomposition" title="Permalink to this heading">#</a></h1>
-<p>The Proper Orthogonal Decomposition (POD) is considered as the state-of-the-art in Reduced Order Modelling <span id="id1">[<a class="reference internal" href="../biblio.html#id17" title="Gianluigi Rozza, Martin Hess, Giovanni Stabile, Marco Tezzele, Francesco Ballarin, Carmen Grassle, Michael Hinze, Stefan Volkwein, Francisco Chinesta, Pierre Ladeveze, Yvon Maday, Anthony Patera, and J. Farhat, Char. Model Order Reduction: Volume 2: Snapshot-Based Methods and Algorithms. De Gruyter, 2020. ISBN 9783110671490. URL: https://doi.org/10.1515/9783110671490, doi:doi:10.1515/9783110671490.">19</a>]</span>, especially in fluid-dynamics and in nuclear reactors applications. The algorithm is based on the Singular Value Decomposition of the snapshots matrix, which can be linked to the correlation matrix <span class="math notranslate nohighlight">\(C\in\mathbb{R}^{N_s\times N_s}\)</span>:</p>
+<p>The Proper Orthogonal Decomposition (POD) is considered as the state-of-the-art in Reduced Order Modelling <span id="id1">[<a class="reference internal" href="../biblio.html#id17" title="Gianluigi Rozza, Martin Hess, Giovanni Stabile, Marco Tezzele, Francesco Ballarin, Carmen Grassle, Michael Hinze, Stefan Volkwein, Francisco Chinesta, Pierre Ladeveze, Yvon Maday, Anthony Patera, and J. Farhat, Char. Model Order Reduction: Volume 2: Snapshot-Based Methods and Algorithms. De Gruyter, 2020. ISBN 9783110671490. URL: https://doi.org/10.1515/9783110671490, doi:doi:10.1515/9783110671490.">20</a>]</span>, especially in fluid-dynamics and in nuclear reactors applications. The algorithm is based on the Singular Value Decomposition of the snapshots matrix, which can be linked to the correlation matrix <span class="math notranslate nohighlight">\(C\in\mathbb{R}^{N_s\times N_s}\)</span>:</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 C_{nm} = \int_\Omega u_n\cdot u_m \, d\Omega\qquad n,m = 1,\dots, N_s

@@ -51,7 +51,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Introduction" href="usage/Introduction.html" />
+    <link rel="prev" title="Results of the offline phase" href="Tutorials/BuoyantCavity/offline_results.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -118,6 +118,40 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="usage/Introduction.html">
    Introduction
   </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="usage/installation_notes.html">
+   Installation notes
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="Tutorials/BuoyantCavity/problem.html">
+   Differentially Heated Cavity
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Tutorials/BuoyantCavity/perform_offline.html">
+     How to perform the offline phase?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="Tutorials/BuoyantCavity/offline_results.html">
+     Results of the offline phase
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -345,56 +379,60 @@ title="Print to PDF"
 <span class="label"><span class="fn-bracket">[</span>8<span class="fn-bracket">]</span></span>
 <p>Jan S Hesthaven, Gianluigi Rozza, and Benjamin Stamm. <em>Certified Reduced Basis Methods for Parametrized Partial Differential Equations</em>. Springer International Publishing, 2016. <a class="reference external" href="https://doi.org/10.1007/978-3-319-22470-1">doi:10.1007/978-3-319-22470-1</a>.</p>
 </div>
-<div class="citation" id="id19" role="doc-biblioentry">
+<div class="citation" id="id24" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>9<span class="fn-bracket">]</span></span>
+<p>Carolina Introini. <em>Advanced modelling and stability analysis for nuclear reactors</em>. PhD thesis, Politecnico di Milano, 2021.</p>
+</div>
+<div class="citation" id="id19" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></span>
 <p>Carolina Introini, Simone Cavalleri, Stefano Lorenzi, Stefano Riva, and Antonio Cammi. Stabilization of generalized empirical interpolation method (geim) in presence of noise: a novel approach based on tikhonov regularization. <em>Computer Methods in Applied Mechanics and Engineering</em>, 404:115773, 2023. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0045782522007290">https://www.sciencedirect.com/science/article/pii/S0045782522007290</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.cma.2022.115773">doi:https://doi.org/10.1016/j.cma.2022.115773</a>.</p>
 </div>
 <div class="citation" id="id22" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>10<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></span>
 <p>Carolina Introini, Stefano Riva, Stefano Lorenzi, Simone Cavalleri, and Antonio Cammi. Non-intrusive system state reconstruction from indirect measurements: A novel approach based on Hybrid Data Assimilation methods. <em>Annals of Nuclear Energy</em>, 182:109538, 2023. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0306454922005680">https://www.sciencedirect.com/science/article/pii/S0306454922005680</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.anucene.2022.109538">doi:https://doi.org/10.1016/j.anucene.2022.109538</a>.</p>
 </div>
 <div class="citation" id="id21" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>11<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></span>
 <p>Y. Maday, O. Mula, A. T. Patera, and M. Yano. The Generalized Empirical Interpolation Method: Stability theory on Hilbert spaces with an application to the Stokes equation. <em>Computer Methods in Applied Mechanics and Engineering</em>, 287:310–334, 2015. <a class="reference external" href="https://doi.org/10.1016/j.cma.2015.01.018">doi:10.1016/j.cma.2015.01.018</a>.</p>
 </div>
 <div class="citation" id="id13" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>12<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></span>
 <p>Yvon Maday. Reduced basis method for the rapid and reliable solution of partial differential equations. November 2006. Preprint. URL: <a class="reference external" href="https://hal.archives-ouvertes.fr/hal-00112152">https://hal.archives-ouvertes.fr/hal-00112152</a>.</p>
 </div>
 <div class="citation" id="id2" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>13<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></span>
 <p>Yvon Maday and Olga Mula. <em>A Generalized Empirical Interpolation Method: Application of Reduced Basis Techniques to Data Assimilation</em>, pages 221–235. Springer Milan, Milano, 2013. URL: <a class="reference external" href="https://doi.org/10.1007/978-88-470-2592-9_13">https://doi.org/10.1007/978-88-470-2592-9_13</a>, <a class="reference external" href="https://doi.org/10.1007/978-88-470-2592-9_13">doi:10.1007/978-88-470-2592-9_13</a>.</p>
 </div>
 <div class="citation" id="id20" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>14<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>15<span class="fn-bracket">]</span></span>
 <p>Yvon Maday, Anthony Patera, James Penn, and Masayuki Yano. A parameterized-background data-weak approach to variational data assimilation: formulation, analysis, and application to acoustics. <em>International Journal for Numerical Methods in Engineering</em>, 2014. <a class="reference external" href="https://doi.org/10.1002/nme.4747">doi:10.1002/nme.4747</a>.</p>
 </div>
 <div class="citation" id="id6" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>15<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></span>
 <p>Yvon Maday and Anthony T Patera. 4 Reduced basis methods. In Peter Benner, Stefano Grivet-Talocia, Alfio Quarteroni, Gianluigi Rozza, Wil Schilders, and Luís Miguel Silveira, editors, <em>Volume 2 Snapshot-Based Methods and Algorithms</em>, pages 139–180. De Gruyter, 2020. <a class="reference external" href="https://doi.org/doi:10.1515/9783110671490-004">doi:doi:10.1515/9783110671490-004</a>.</p>
 </div>
 <div class="citation" id="id5" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>16<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>17<span class="fn-bracket">]</span></span>
 <p>Alfio Quarteroni, Andrea Manzoni, and Federico Negri. <em>Reduced Basis Methods for Partial Differential Equations</em>. Springer International Publishing, 2016. <a class="reference external" href="https://doi.org/10.1007/978-3-319-15431-2">doi:10.1007/978-3-319-15431-2</a>.</p>
 </div>
 <div class="citation" id="id10" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>17<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>18<span class="fn-bracket">]</span></span>
 <p>Alfio Quarteroni and Gianluigi Rozza. <em>Reduced Order Methods for Modeling and Computational Reduction</em>. Springer International Publishing, 2014. <a class="reference external" href="https://doi.org/10.1007/978-3-319-02090-7">doi:10.1007/978-3-319-02090-7</a>.</p>
 </div>
 <div class="citation" id="id3" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>18<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>19<span class="fn-bracket">]</span></span>
 <p>Stefano Riva, Carolina Introini, Stefano Lorenzi, and Antonio Cammi. Hybrid data assimilation methods, Part I: Numerical comparison between GEIM and PBDW. <em>Annals of Nuclear Energy</em>, 190:109864, 2023. URL: <a class="reference external" href="https://www.sciencedirect.com/science/article/pii/S0306454923001834">https://www.sciencedirect.com/science/article/pii/S0306454923001834</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.anucene.2023.109864">doi:https://doi.org/10.1016/j.anucene.2023.109864</a>.</p>
 </div>
 <div class="citation" id="id17" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>19<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>20<span class="fn-bracket">]</span></span>
 <p>Gianluigi Rozza, Martin Hess, Giovanni Stabile, Marco Tezzele, Francesco Ballarin, Carmen Grassle, Michael Hinze, Stefan Volkwein, Francisco Chinesta, Pierre Ladeveze, Yvon Maday, Anthony Patera, and J. Farhat, Char. <em>Model Order Reduction: Volume 2: Snapshot-Based Methods and Algorithms</em>. De Gruyter, 2020. ISBN 9783110671490. URL: <a class="reference external" href="https://doi.org/10.1515/9783110671490">https://doi.org/10.1515/9783110671490</a>, <a class="reference external" href="https://doi.org/doi:10.1515/9783110671490">doi:doi:10.1515/9783110671490</a>.</p>
 </div>
 <div class="citation" id="id23" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>20<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>21<span class="fn-bracket">]</span></span>
 <p>Kajal Chandra Saha. Double lid driven cavity with different moving wall directions for low reynolds number flow. <em>International Journal of Applied Mathematics and Theoretical Physics</em>, 4(3):67, 2018. <a class="reference external" href="https://doi.org/10.11648/j.ijamtp.20180403.11">doi:10.11648/j.ijamtp.20180403.11</a>.</p>
 </div>
 <div class="citation" id="id16" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>21<span class="fn-bracket">]</span></span>
+<span class="label"><span class="fn-bracket">[</span>22<span class="fn-bracket">]</span></span>
 <p>Francesco A. B. Silva, Stefano Lorenzi, and Antonio Cammi. An empirical interpolation method for two-dimensional vector fields and vector measurements. <em>International Journal for Numerical Methods in Engineering</em>, 122(15):3733–3748, 2021. URL: <a class="reference external" href="https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.6679">https://onlinelibrary.wiley.com/doi/abs/10.1002/nme.6679</a>, <a class="reference external" href="https://arxiv.org/abs/https://onlinelibrary.wiley.com/doi/pdf/10.1002/nme.6679">arXiv:https://onlinelibrary.wiley.com/doi/pdf/10.1002/nme.6679</a>, <a class="reference external" href="https://doi.org/https://doi.org/10.1002/nme.6679">doi:https://doi.org/10.1002/nme.6679</a>.</p>
 </div>
 </div>
@@ -428,11 +466,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="usage/Introduction.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="Tutorials/BuoyantCavity/offline_results.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction</p>
+            <p class="prev-next-title">Results of the offline phase</p>
         </div>
     </a>
 </div>
