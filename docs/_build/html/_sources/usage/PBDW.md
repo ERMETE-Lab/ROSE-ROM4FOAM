@@ -5,6 +5,9 @@ The [Parameterised-Background Data-Weak](https://onlinelibrary.wiley.com/doi/10.
 u^\star_\xi = \text{arg }\min\limits_{u\in\mathcal{U}}\;\xi ||u-u^{bk}||_{L^2(\Omega)}^2+\frac{1}{M}\sum_{m=1}^M\left(v_m(u)-y_m^{obs}\right)^2
 \end{equation*}
 
+... aggiungere come si arriva a formulazione lineare.
+
+
 The repository implements the algorithm in OpenFOAM, applied to scalar fields only, the details of the implemented version of the formulation can be found in {cite}`Riva2023_Part1`.
 
 There are 2 folders containing the offline and online phase of the algorithm.
@@ -25,7 +28,7 @@ The first iteration starts by selecting the generating function
 \end{equation*}
 and the correspondent basis function as
 \begin{equation*}
-	\zeta_1(\mathbf{x}) = \frac{u_1(\mathbf{x})}{\|{u_1(\mathbf{x})}\|_{L^2(\Omega)}}\qquad\qquad Z_1 = span\{\zeta_1\}
+	\zeta_1(\mathbf{x}) = \frac{u_1(\mathbf{x})}{\|{u_1(\mathbf{x})}\|_{L^2(\Omega)}}\qquad\qquad Z_1 = \text{span}\{\zeta_1\}
 \end{equation*}
 Then the main loop, where $2\leq M \leq M_{max}$, begins: the generating function is selected as the one maximizing the error
 \begin{equation*}
@@ -36,4 +39,29 @@ where $z_i = \left(u, \zeta_i\right)_{L^2(\Omega)}$ and $E_{M-1}$ is the reconst
 	Z_M = \text{span}\{\zeta_1, \dots, \zeta_M\}
 \end{equation*}
 $E_{M-1}$ may be replaced by a proper error estimator $\Delta_{M-1}\geq E_{M-1}$, which allows a speed up of the calculations. 
+
 ## SGREEDY algorithm
+This algorithm maximizes the *inf-sup* constant $\beta_{N,M}$ in a greedy manner {cite}`HAIK2023115868, Maday2015_GEIM`, the main difference with respect to GEIM is that this procedure works also for $M>N$, hence we can place more sensors $M$ than the number of basis function $N$ used; furthermore SGREEDY is equivalent to GEIM are equivalent if $M=N$. The details are reported in following algorithm.
+
+```{image} ../images/chap1/SGREEDY-algo.png
+:alt: NRGlogo
+:class: bg-primary mb-1
+:width: 1000px
+:align: center
+```
+
+````{prf:theorem} Inf-Sup theorem
+:label: inf-sup-theorem
+The inf-sup constant $\beta_{N,M}$ is the square root of the minimum eigenvalue of the following problem
+\begin{equation*}
+    K^TA^{-1}K\mathbf{z}_n = \lambda_n Z\mathbf{z}_n \qquad\qquad n = 1, \dots N
+\end{equation*}
+where the matrices are defined as
+\begin{equation*}
+\begin{split}
+    A_{mm'}&=\left(g_m,\,g_{m'}\right)_{L^2(\Omega)}\qquad m,m' = 1, \dots M\\
+    K_{mn}&=\left(g_m,\,\zeta_{n}\right)_{L^2(\Omega)}\qquad m= 1, \dots M\quad n= 1, \dots, N\\
+	Z_{nn'} &= \left(\zeta_n,\zeta_{n'}\right)_{L^2(\Omega)} \qquad n,n' = 1, \dots, N
+    \end{split}
+\end{equation*}
+````

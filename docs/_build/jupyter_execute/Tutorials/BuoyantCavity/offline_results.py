@@ -203,5 +203,5 @@ plt.grid(which='minor',linestyle='--')
 plt.legend(fontsize=20, framealpha=1., loc = 'upper right')
 
 plt.tight_layout()
-# LebesgueGEIM_fig.savefig(path+'/GEIM_lebesgue.pdf', format='pdf', dpi=300, bbox_inches='tight')
+# TrainErr_fig.savefig(path+'/TrainError.pdf', format='pdf', dpi=300, bbox_inches='tight')
 

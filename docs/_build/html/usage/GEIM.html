@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -302,6 +303,16 @@ const thebe_selector_output = ".output, .cell_output"
      Results of the offline phase
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tutorials/BuoyantCavity/perform_online.html">
+     How to perform the online phase?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tutorials/BuoyantCavity/online_results.html">
+     Online Phase
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -497,14 +508,14 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="geim-generalised-empirical-interpolation-method">
 <h1>GEIM - Generalised Empirical Interpolation Method<a class="headerlink" href="#geim-generalised-empirical-interpolation-method" title="Permalink to this heading">#</a></h1>
-<p>The <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-88-470-2592-9_13">Generalised Empirical Interpolation Method</a> was firstly presented in <span id="id1">[<a class="reference internal" href="../biblio.html#id2" title="Yvon Maday and Olga Mula. A Generalized Empirical Interpolation Method: Application of Reduced Basis Techniques to Data Assimilation, pages 221–235. Springer Milan, Milano, 2013. URL: https://doi.org/10.1007/978-88-470-2592-9_13, doi:10.1007/978-88-470-2592-9_13.">14</a>]</span> and in literature several extension and additional studies are present. In this repository, the algorithm is implemented in OpenFOAM, to scalar field only.</p>
+<p>The <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-88-470-2592-9_13">Generalised Empirical Interpolation Method</a> was firstly presented in <span id="id1">[<a class="reference internal" href="../biblio.html#id2" title="Yvon Maday and Olga Mula. A Generalized Empirical Interpolation Method: Application of Reduced Basis Techniques to Data Assimilation, pages 221–235. Springer Milan, Milano, 2013. URL: https://doi.org/10.1007/978-88-470-2592-9_13, doi:10.1007/978-88-470-2592-9_13.">15</a>]</span> and in literature several extension and additional studies are present. In this repository, the algorithm is implemented in OpenFOAM, to scalar field only.</p>
 <p>There are 3 folders containing the version of the solver for scalar field:</p>
 <ul class="simple">
 <li><p>ScalarGEIM_Offline (generation of the magic function and points)</p></li>
 <li><p>ScalarGEIM_Online (online reconstruction of the field using <strong>synthetic data</strong>)</p></li>
 <li><p>ScalarTR-GEIM (online reconstruction of the field using <strong>synthetic data</strong> polluted by noise, regularised version)</p></li>
 </ul>
-<p>The last is a novel regularised approach proposed in <span id="id2">[<a class="reference internal" href="../biblio.html#id19" title="Carolina Introini, Simone Cavalleri, Stefano Lorenzi, Stefano Riva, and Antonio Cammi. Stabilization of generalized empirical interpolation method (geim) in presence of noise: a novel approach based on tikhonov regularization. Computer Methods in Applied Mechanics and Engineering, 404:115773, 2023. URL: https://www.sciencedirect.com/science/article/pii/S0045782522007290, doi:https://doi.org/10.1016/j.cma.2022.115773.">10</a>]</span> which adopts the Tikhonov regularisation to retrieve stability of the method.</p>
+<p>The last is a novel regularised approach proposed in <span id="id2">[<a class="reference internal" href="../biblio.html#id19" title="Carolina Introini, Simone Cavalleri, Stefano Lorenzi, Stefano Riva, and Antonio Cammi. Stabilization of generalized empirical interpolation method (geim) in presence of noise: a novel approach based on tikhonov regularization. Computer Methods in Applied Mechanics and Engineering, 404:115773, 2023. URL: https://www.sciencedirect.com/science/article/pii/S0045782522007290, doi:https://doi.org/10.1016/j.cma.2022.115773.">11</a>]</span> which adopts the Tikhonov regularisation to retrieve stability of the method.</p>
 <p>Here we report the algorithm for scalar fields (without regularisation).</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/GEIM-algo.png"><img alt="GEIM-algo" class="bg-primary mb-1 align-center" src="../_images/GEIM-algo.png" style="width: 1000px;" /></a>
 <div class="toctree-wrapper compound">

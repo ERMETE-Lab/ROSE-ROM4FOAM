@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -304,6 +305,16 @@ const thebe_selector_output = ".output, .cell_output"
      Results of the offline phase
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tutorials/BuoyantCavity/perform_online.html">
+     How to perform the online phase?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tutorials/BuoyantCavity/online_results.html">
+     Online Phase
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -546,12 +557,13 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="pbdw-parameterised-background-data-weak-formulation">
 <h1>PBDW - Parameterised-Background Data-Weak formulation<a class="headerlink" href="#pbdw-parameterised-background-data-weak-formulation" title="Permalink to this heading">#</a></h1>
-<p>The <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/nme.4747">Parameterised-Background Data-Weak</a> (PBDW) was introduced in <span id="id1">[<a class="reference internal" href="../biblio.html#id20" title="Yvon Maday, Anthony Patera, James Penn, and Masayuki Yano. A parameterized-background data-weak approach to variational data assimilation: formulation, analysis, and application to acoustics. International Journal for Numerical Methods in Engineering, 2014. doi:10.1002/nme.4747.">15</a>]</span> as a practical algorithm to general variational data assimilation</p>
+<p>The <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/nme.4747">Parameterised-Background Data-Weak</a> (PBDW) was introduced in <span id="id1">[<a class="reference internal" href="../biblio.html#id20" title="Yvon Maday, Anthony Patera, James Penn, and Masayuki Yano. A parameterized-background data-weak approach to variational data assimilation: formulation, analysis, and application to acoustics. International Journal for Numerical Methods in Engineering, 2014. doi:10.1002/nme.4747.">16</a>]</span> as a practical algorithm to general variational data assimilation</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
 u^\star_\xi = \text{arg }\min\limits_{u\in\mathcal{U}}\;\xi ||u-u^{bk}||_{L^2(\Omega)}^2+\frac{1}{M}\sum_{m=1}^M\left(v_m(u)-y_m^{obs}\right)^2
 \end{equation*}\]</div>
-<p>The repository implements the algorithm in OpenFOAM, applied to scalar fields only, the details of the implemented version of the formulation can be found in <span id="id2">[<a class="reference internal" href="../biblio.html#id3" title="Stefano Riva, Carolina Introini, Stefano Lorenzi, and Antonio Cammi. Hybrid data assimilation methods, Part I: Numerical comparison between GEIM and PBDW. Annals of Nuclear Energy, 190:109864, 2023. URL: https://www.sciencedirect.com/science/article/pii/S0306454923001834, doi:https://doi.org/10.1016/j.anucene.2023.109864.">19</a>]</span>.</p>
+<p>… aggiungere come si arriva a formulazione lineare.</p>
+<p>The repository implements the algorithm in OpenFOAM, applied to scalar fields only, the details of the implemented version of the formulation can be found in <span id="id2">[<a class="reference internal" href="../biblio.html#id3" title="Stefano Riva, Carolina Introini, Stefano Lorenzi, and Antonio Cammi. Hybrid data assimilation methods, Part I: Numerical comparison between GEIM and PBDW. Annals of Nuclear Energy, 190:109864, 2023. URL: https://www.sciencedirect.com/science/article/pii/S0306454923001834, doi:https://doi.org/10.1016/j.anucene.2023.109864.">20</a>]</span>.</p>
 <p>There are 2 folders containing the offline and online phase of the algorithm.</p>
 <ul class="simple">
 <li><p>ScalarPBDW_Offline</p></li>
@@ -570,7 +582,7 @@ u^\star_\xi = \text{arg }\min\limits_{u\in\mathcal{U}}\;\xi ||u-u^{bk}||_{L^2(\O
 <p>and the correspondent basis function as</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-	\zeta_1(\mathbf{x}) = \frac{u_1(\mathbf{x})}{\|{u_1(\mathbf{x})}\|_{L^2(\Omega)}}\qquad\qquad Z_1 = span\{\zeta_1\}
+	\zeta_1(\mathbf{x}) = \frac{u_1(\mathbf{x})}{\|{u_1(\mathbf{x})}\|_{L^2(\Omega)}}\qquad\qquad Z_1 = \text{span}\{\zeta_1\}
 \end{equation*}\]</div>
 <p>Then the main loop, where <span class="math notranslate nohighlight">\(2\leq M \leq M_{max}\)</span>, begins: the generating function is selected as the one maximizing the error</p>
 <div class="amsmath math notranslate nohighlight">
@@ -586,7 +598,27 @@ u^\star_\xi = \text{arg }\min\limits_{u\in\mathcal{U}}\;\xi ||u-u^{bk}||_{L^2(\O
 </section>
 <section id="sgreedy-algorithm">
 <h2>SGREEDY algorithm<a class="headerlink" href="#sgreedy-algorithm" title="Permalink to this heading">#</a></h2>
+<p>This algorithm maximizes the <em>inf-sup</em> constant <span class="math notranslate nohighlight">\(\beta_{N,M}\)</span> in a greedy manner <span id="id3">[<a class="reference internal" href="../biblio.html#id25" title="Willy Haik, Yvon Maday, and Ludovic Chamoin. A real-time variational data assimilation method with data-driven model enrichment for time-dependent problems. Computer Methods in Applied Mechanics and Engineering, 405:115868, 2023. URL: https://www.sciencedirect.com/science/article/pii/S0045782522008246, doi:https://doi.org/10.1016/j.cma.2022.115868.">8</a>, <a class="reference internal" href="../biblio.html#id21" title="Y. Maday, O. Mula, A. T. Patera, and M. Yano. The Generalized Empirical Interpolation Method: Stability theory on Hilbert spaces with an application to the Stokes equation. Computer Methods in Applied Mechanics and Engineering, 287:310–334, 2015. doi:10.1016/j.cma.2015.01.018.">13</a>]</span>, the main difference with respect to GEIM is that this procedure works also for <span class="math notranslate nohighlight">\(M&gt;N\)</span>, hence we can place more sensors <span class="math notranslate nohighlight">\(M\)</span> than the number of basis function <span class="math notranslate nohighlight">\(N\)</span> used; furthermore SGREEDY is equivalent to GEIM are equivalent if <span class="math notranslate nohighlight">\(M=N\)</span>. The details are reported in following algorithm.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/SGREEDY-algo.png"><img alt="NRGlogo" class="bg-primary mb-1 align-center" src="../_images/SGREEDY-algo.png" style="width: 1000px;" /></a>
+<div class="proof theorem admonition" id="inf-sup-theorem">
+<p class="admonition-title"><span class="caption-number">Theorem 1 </span> (Inf-Sup theorem)</p>
+<section class="theorem-content" id="proof-content">
+<p>The inf-sup constant <span class="math notranslate nohighlight">\(\beta_{N,M}\)</span> is the square root of the minimum eigenvalue of the following problem</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    K^TA^{-1}K\mathbf{z}_n = \lambda_n Z\mathbf{z}_n \qquad\qquad n = 1, \dots N
+\end{equation*}\]</div>
+<p>where the matrices are defined as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\begin{split}
+    A_{mm'}&amp;=\left(g_m,\,g_{m'}\right)_{L^2(\Omega)}\qquad m,m' = 1, \dots M\\
+    K_{mn}&amp;=\left(g_m,\,\zeta_{n}\right)_{L^2(\Omega)}\qquad m= 1, \dots M\quad n= 1, \dots, N\\
+	Z_{nn'} &amp;= \left(\zeta_n,\zeta_{n'}\right)_{L^2(\Omega)} \qquad n,n' = 1, \dots, N
+    \end{split}
+\end{equation*}\]</div>
 </section>
+</div></section>
 <div class="toctree-wrapper compound">
 </div>
 </section>

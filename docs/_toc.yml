@@ -51,7 +51,8 @@ parts:
         sections:
             - file: Tutorials/BuoyantCavity/perform_offline.md
             - file: Tutorials/BuoyantCavity/offline_results.ipynb
-  #         - file: Tutorials/BuoyantCavity/online_results.ipynb
+            - file: Tutorials/BuoyantCavity/perform_online.md
+            - file: Tutorials/BuoyantCavity/online_results.ipynb
 
   - caption: Appendix
     chapters:
