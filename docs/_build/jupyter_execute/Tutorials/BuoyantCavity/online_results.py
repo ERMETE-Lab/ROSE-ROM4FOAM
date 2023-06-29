@@ -14,7 +14,7 @@
 # - **Regularisation via TR-GEIM for noisy data**;
 # - **Indirect Reconstruction with GEIM-VT**.
 
-# In[2]:
+# In[1]:
 
 
 import numpy as np
@@ -36,7 +36,7 @@ tex_var_names = ['T', '\mathbf{u}']
 # ### Scalar Field: clean data
 # Let us first consider the case of the temperature field $T$ for the following algorithm: POD, EIM, GEIM (only $s^2=0.0004$) and PBDW (only $s^2=0.0004$).
 
-# In[3]:
+# In[2]:
 
 
 clean_scalar_AbsErr = dict()
@@ -115,7 +115,7 @@ plt.tight_layout()
 # Let us first consider the case of the velocity field $\mathbf{u}$ for the following algorithm: POD and EIM.
 # Only the relative error is calculated.
 
-# In[4]:
+# In[3]:
 
 
 clean_vector_AbsErr = dict()
@@ -161,7 +161,7 @@ plt.tight_layout()
 # \end{equation*}
 # given $\mathcal{I}_M$ the interpolant using $M$ basis functions.
 
-# In[5]:
+# In[4]:
 
 
 clean_GEIM_AbsErr = dict()
@@ -224,7 +224,7 @@ plt.tight_layout()
 # 
 # The absolute and relative error defined as above will be plotted.
 
-# In[6]:
+# In[5]:
 
 
 noisy_GEIM_AbsErr = dict()
@@ -288,7 +288,7 @@ plt.tight_layout()
 # 
 # The absolute and relative error defined as above will be plotted.
 
-# In[7]:
+# In[6]:
 
 
 noisy_PBDW_AbsErr = dict()
@@ -348,7 +348,7 @@ plt.tight_layout()
 # ## Regularisation via TR-GEIM for noisy data
 # In order to retrieve robustness and stability, the Tikhonov regularisation is used. Only the case with $s^2=0.0004$ and $\sigma = 0.01$ are going to be plotted.
 
-# In[13]:
+# In[7]:
 
 
 noisy_TRGEIM_RelErr = dict()
@@ -358,7 +358,7 @@ sigma = ['0.01']
 
 # Importing data
 for ll in range(len(sigma)):
-    noisy_TRGEIM_RelErr['sigma = '+sigma[ll]] = np.loadtxt('./NoisyData-reg/GEIM_'+field+'_s_'+s2[1]+'/'+field+'_TR-GEIM_files/average_L2_relative_error_noiseStd_'+sigma[ll]+'.txt')
+    noisy_TRGEIM_RelErr['sigma = '+sigma[ll]] = np.loadtxt('./NoisyData-reg/GEIM_'+field+'_s_'+s2[1]+'/'+field+'_TR-GEIM_files/average_L2_relative_error_noiseStd_'+sigma[ll]+'.txt')[1:]
                                                                                    
 noisyTRGEIMTestErr_fig = plt.figure( figsize= (6 * len(sigma),4))
 
@@ -376,14 +376,52 @@ for ll in range(len(sigma)):
     plt.ylabel(r"Relative Error $\varepsilon_M$",fontsize=15)
     plt.grid(which='major',linestyle='-')
     plt.grid(which='minor',linestyle='--')
-    plt.legend(fontsize=15, framealpha=1., loc = 'upper right', ncols=1)
+    plt.legend(fontsize=15, framealpha=1., loc = 'upper left', ncols=1)
 
 plt.tight_layout()
 # noisyTRGEIMTestErr_fig.savefig('TRGEIMnoisy_test_error.pdf', format='pdf', dpi=300, bbox_inches='tight')
 
 
-# In[ ]:
+# ## Indirect Reconstruction with GEIM-VT
+# In this section, we are going to plot the average relative error between the interpolant of GEIM-VT with clean data per each field that has been reconstructed ($T, p_{rgh}$ and $\mathbf{u}$) and the true fields of the Test set, defined as follows for the generic field $\psi$ (either scalar or vector)
+# \begin{equation*}
+# \varepsilon_M = \left\langle \frac{\left\| \psi(\boldsymbol{\mu}) - \mathcal{I}_M[\psi(\boldsymbol{\mu})]\right\|_{L^2}}{\left\| \psi(\boldsymbol{\mu}) \right\|_{L^2}}\right\rangle_{\boldsymbol{\mu}\in\Xi_{\text{test}}} 
+# \end{equation*}
+# given $\mathcal{I}_M$ the interpolant using $M$ basis functions.
+
+# In[7]:
 
 
+clean_GEIM_VT_aveErr = dict()
+clean_GEIM_VT_maxErr = dict()
 
+fields = ['T', 'p_rgh', 'U']
+field_tex = ['T', 'p_{rgh}', '\mathbf{u}']
+s2 = '0.0004'
+
+# Importing data
+for ll in range(len(fields)):
+    clean_GEIM_VT_aveErr[fields[ll]] = np.loadtxt('./GEIM-VT_s_'+s2+'/GEIM-VT_Online_files/'+fields[ll]+'_average_L2_relative_error.txt')[1:]
+    clean_GEIM_VT_maxErr[fields[ll]] = np.loadtxt('./GEIM-VT_s_'+s2+'/GEIM-VT_Online_files/'+fields[ll]+'_maximum_L2_relative_error.txt')[1:]
+                                                                                   
+cleanGEIM_VT_TestErr_fig = plt.figure( figsize= (5 * len(fields),4))
+
+for ll in range(len(fields)):
+    plt.subplot(1,len(fields),ll+1)
+    
+    plt.semilogy(np.arange(1,clean_GEIM_VT_aveErr[fields[ll]].size+1,1),
+                 clean_GEIM_VT_aveErr[fields[ll]], '-^', c=cm.autumn(10), label=r"average")
+    plt.semilogy(np.arange(1,clean_GEIM_VT_maxErr[fields[ll]].size+1,1),
+                 clean_GEIM_VT_maxErr[fields[ll]], '-^', c=cm.autumn(200), label=r"maximum")
+         
+    plt.xlabel(r"Rank $M$",fontsize=15)
+    plt.xticks(np.arange(0,clean_GEIM_VT_maxErr[fields[ll]].size+1,5))
+    plt.xlim(1,clean_GEIM_VT_maxErr[fields[ll]].size)
+    plt.ylabel(r"Relative Error $\varepsilon_M^{"+field_tex[ll]+"}$",fontsize=15)
+    plt.grid(which='major',linestyle='-')
+    plt.grid(which='minor',linestyle='--')
+    plt.legend(fontsize=15, framealpha=1., loc = 'upper right', ncols=1)
+
+plt.tight_layout()
+# cleanGEIM_VT_TestErr_fig.savefig('GEIMVTclean_test_error.pdf', format='pdf', dpi=300, bbox_inches='tight')
 

@@ -811,6 +811,18 @@ in which `noise_std` is the standard deviation $\sigma$ of the random noise and 
 </section>
 <section id="geim-vt">
 <h2>GEIM-VT<a class="headerlink" href="#geim-vt" title="Permalink to this heading">#</a></h2>
+<p>Change directory to <code class="docutils literal notranslate"><span class="pre">GEIM-VT_s_0.0004</span></code> and make sure that the file <code class="docutils literal notranslate"><span class="pre">test_folders.txt</span></code> generated with the test snapshots is in <code class="docutils literal notranslate"><span class="pre">GEIM-VT_s_0.0004/system</span></code>. To execute the solver, the correspondent <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> must be set up as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Online_parameters</span>
+<span class="p">{</span>
+	<span class="n">msNumber</span> <span class="mi">40</span><span class="p">;</span>         
+	<span class="n">foldersList</span> <span class="p">(</span><span class="c1">#include &quot;test_folders.txt&quot;) ;                 </span>
+<span class="p">}</span> 
+</pre></div>
+</div>
+<p>Now in the terminal (path: <code class="docutils literal notranslate"><span class="pre">BuoyantCavity/ROM/GEIM-VT_s2_0.0004</span></code>) execute the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GEIM</span><span class="o">-</span><span class="n">VT_Online</span>
+</pre></div>
+</div>
 </section>
 </section>
 

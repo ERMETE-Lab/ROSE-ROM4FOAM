@@ -572,6 +572,11 @@ title="Print to PDF"
    Regularisation via TR-GEIM for noisy data
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indirect-reconstruction-with-geim-vt">
+   Indirect Reconstruction with GEIM-VT
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -626,6 +631,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#regularisation-via-tr-geim-for-noisy-data">
    Regularisation via TR-GEIM for noisy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indirect-reconstruction-with-geim-vt">
+   Indirect Reconstruction with GEIM-VT
   </a>
  </li>
 </ul>
@@ -1024,7 +1034,7 @@ E_M = \left\langle\left\| \psi(\boldsymbol{\mu}) - \mathcal{I}_M[\psi(\boldsymbo
 
 <span class="c1"># Importing data</span>
 <span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)):</span>
-    <span class="n">noisy_TRGEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./NoisyData-reg/GEIM_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_TR-GEIM_files/average_L2_relative_error_noiseStd_&#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span><span class="p">)</span>
+    <span class="n">noisy_TRGEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./NoisyData-reg/GEIM_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_TR-GEIM_files/average_L2_relative_error_noiseStd_&#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
                                                                                    
 <span class="n">noisyTRGEIMTestErr_fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
 
@@ -1042,7 +1052,7 @@ E_M = \left\langle\left\| \psi(\boldsymbol{\mu}) - \mathcal{I}_M[\psi(\boldsymbo
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Relative Error $\varepsilon_M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="c1"># noisyTRGEIMTestErr_fig.savefig(&#39;TRGEIMnoisy_test_error.pdf&#39;, format=&#39;pdf&#39;, dpi=300, bbox_inches=&#39;tight&#39;)</span>
@@ -1051,6 +1061,56 @@ E_M = \left\langle\left\| \psi(\boldsymbol{\mu}) - \mathcal{I}_M[\psi(\boldsymbo
 </div>
 <div class="cell_output docutils container">
 <img alt="../../_images/online_results_14_0.png" src="../../_images/online_results_14_0.png" />
+</div>
+</div>
+</section>
+<section id="indirect-reconstruction-with-geim-vt">
+<h2>Indirect Reconstruction with GEIM-VT<a class="headerlink" href="#indirect-reconstruction-with-geim-vt" title="Permalink to this heading">#</a></h2>
+<p>In this section, we are going to plot the average relative error between the interpolant of GEIM-VT with clean data per each field that has been reconstructed (<span class="math notranslate nohighlight">\(T, p_{rgh}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{u}\)</span>) and the true fields of the Test set, defined as follows for the generic field <span class="math notranslate nohighlight">\(\psi\)</span> (either scalar or vector)</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\varepsilon_M = \left\langle \frac{\left\| \psi(\boldsymbol{\mu}) - \mathcal{I}_M[\psi(\boldsymbol{\mu})]\right\|_{L^2}}{\left\| \psi(\boldsymbol{\mu}) \right\|_{L^2}}\right\rangle_{\boldsymbol{\mu}\in\Xi_{\text{test}}} 
+\end{equation*}\]</div>
+<p>given <span class="math notranslate nohighlight">\(\mathcal{I}_M\)</span> the interpolant using <span class="math notranslate nohighlight">\(M\)</span> basis functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_GEIM_VT_aveErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">clean_GEIM_VT_maxErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="n">fields</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;p_rgh&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">]</span>
+<span class="n">field_tex</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;p_</span><span class="si">{rgh}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;\mathbf</span><span class="si">{u}</span><span class="s1">&#39;</span><span class="p">]</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;0.0004&#39;</span>
+
+<span class="c1"># Importing data</span>
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fields</span><span class="p">)):</span>
+    <span class="n">clean_GEIM_VT_aveErr</span><span class="p">[</span><span class="n">fields</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./GEIM-VT_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="o">+</span><span class="s1">&#39;/GEIM-VT_Online_files/&#39;</span><span class="o">+</span><span class="n">fields</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_average_L2_relative_error.txt&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">clean_GEIM_VT_maxErr</span><span class="p">[</span><span class="n">fields</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./GEIM-VT_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="o">+</span><span class="s1">&#39;/GEIM-VT_Online_files/&#39;</span><span class="o">+</span><span class="n">fields</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_maximum_L2_relative_error.txt&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+                                                                                   
+<span class="n">cleanGEIM_VT_TestErr_fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">fields</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fields</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">fields</span><span class="p">),</span><span class="n">ll</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_GEIM_VT_aveErr</span><span class="p">[</span><span class="n">fields</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+                 <span class="n">clean_GEIM_VT_aveErr</span><span class="p">[</span><span class="n">fields</span><span class="p">[</span><span class="n">ll</span><span class="p">]],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">autumn</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;average&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_GEIM_VT_maxErr</span><span class="p">[</span><span class="n">fields</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+                 <span class="n">clean_GEIM_VT_maxErr</span><span class="p">[</span><span class="n">fields</span><span class="p">[</span><span class="n">ll</span><span class="p">]],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">autumn</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;maximum&quot;</span><span class="p">)</span>
+         
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Rank $M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">clean_GEIM_VT_maxErr</span><span class="p">[</span><span class="n">fields</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_GEIM_VT_maxErr</span><span class="p">[</span><span class="n">fields</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Relative Error $\varepsilon_M^{&quot;</span><span class="o">+</span><span class="n">field_tex</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;}$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># cleanGEIM_VT_TestErr_fig.savefig(&#39;GEIMVTclean_test_error.pdf&#39;, format=&#39;pdf&#39;, dpi=300, bbox_inches=&#39;tight&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/online_results_16_0.png" src="../../_images/online_results_16_0.png" />
 </div>
 </div>
 </section>

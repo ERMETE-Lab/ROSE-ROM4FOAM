@@ -187,3 +187,15 @@ ScalarTRGEIM
 A new folder named `T_TR-GEIM_files` is created to store the results.
 
 ## GEIM-VT
+Change directory to `GEIM-VT_s_0.0004` and make sure that the file `test_folders.txt` generated with the test snapshots is in `GEIM-VT_s_0.0004/system`. To execute the solver, the correspondent `dictionary` must be set up as follows
+```
+Online_parameters
+{
+	msNumber 40;         
+	foldersList (#include "test_folders.txt") ;                 
+} 
+```
+Now in the terminal (path: `BuoyantCavity/ROM/GEIM-VT_s2_0.0004`) execute the following command
+```
+GEIM-VT_Online
+```

@@ -170,4 +170,4 @@ We are now ready to launch the GEIM solver for scalar field, by simply typing in
 ```bash
 GEIM-VT_Offline
 ```
-The solver creates a folder, named `GEIM-VT_s_0.0004` (in this case) containing the GEIM magic functions for all the fields and magic sensors for temperature only, in addiction to some text files with the train error, the modal coefficients, their average and standard deviation (for TR-GEIM), the Lebesgue constant $\Lambda_M$ and the GEIM matrix $B$. For further details, see the specific `README.md` file for this solver.
+The solver creates a folder, named `GEIM-VT_s_0.0004` (in this case) containing the GEIM magic functions for all the fields and magic sensors for all the fields temperature, in addiction to some text files with the train error, the average and standard deviation of the reduced coefficients(for TR-GEIM) and the Lebesgue constant $\Lambda_M$. For further details, see the specific `README.md` file for this solver.
