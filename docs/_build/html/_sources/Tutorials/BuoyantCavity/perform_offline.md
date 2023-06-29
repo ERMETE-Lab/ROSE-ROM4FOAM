@@ -142,3 +142,32 @@ We are now ready to launch the PBDW solver for scalar field, by simply typing in
 ScalarPBDW_Offline
 ```
 The solver creates a folder, named `PBDW_T_WeakGreedy_s_0.0004` (in this case) containing the PBDW basis function and basis sensors, in addiction to some text files with the train error, the modal coefficients, output of the sensor placement algorithms. For further details, see the specific `README.md` file for this solver. For the pressure $p$ it is sufficient to write *p* instead of *T* in the dict.
+
+## GEIM-VT
+This algorithm can be used for indirect reconstruction purposes, estimating the fields (velocity $\mathbf{u}$ and pressure $p$ for this implementation) from the measuremnts of only one scalar field (temperature $T$ in this case). 
+
+The first thing we need to set up is the **dictionary** of the solver for GEIM as follows for $T$
+```
+Offline_parameters
+{
+	error      1e-8;            
+	MaxSensorsNumber 50;         
+	SensorsVariance 0.0004;      
+
+	foldersList (#include "train_folders.txt") ;         
+	// SensorsPositions ( (0.1 0.5 0.3) (0.6 0.8 0.9) (0.25 0.41 0.9) );           
+} 
+```
+```{note}
+The input `SensorsVariance` is the parameter $s^2$ of the Gaussian kernel centred in $\mathbf{x}_k$ of the sensors, i.e.
+\begin{equation*}
+g_k = g(\mathbf{x}-\mathbf{x}_k; s) =\displaystyle \frac{e^{-\frac{\|{\mathbf{x}-\mathbf{x}_k}\|_2^2}{2s^2}}}{\displaystyle \int_\Omega e^{-\frac{\|{\mathbf{x}-\mathbf{x}_k}\|_2^2}{2s^2}}\, d\Omega}
+\end{equation*}
+```
+The input `SensorsPositions` is optional, if nothing is entered all the points in the mesh are used for the centers $\mathbf{x}_k$, otherwise only some locations are considered.
+
+We are now ready to launch the GEIM solver for scalar field, by simply typing in the terminal
+```bash
+GEIM-VT_Offline
+```
+The solver creates a folder, named `GEIM-VT_s_0.0004` (in this case) containing the GEIM magic functions for all the fields and magic sensors for temperature only, in addiction to some text files with the train error, the modal coefficients, their average and standard deviation (for TR-GEIM), the Lebesgue constant $\Lambda_M$ and the GEIM matrix $B$. For further details, see the specific `README.md` file for this solver.

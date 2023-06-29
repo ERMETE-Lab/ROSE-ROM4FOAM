@@ -54,7 +54,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Online Phase" href="online_results.html" />
+    <link rel="next" title="Results of the online phase" href="online_results.html" />
     <link rel="prev" title="Results of the offline phase" href="offline_results.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
@@ -312,7 +312,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="online_results.html">
-     Online Phase
+     Results of the online phase
     </a>
    </li>
   </ul>
@@ -527,8 +527,23 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geim-noisy-data">
+   GEIM - noisy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pbdw-noisy-data">
+   PBDW - noisy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tr-geim-noisy-data">
-   (TR-)GEIM - noisy data
+   TR-GEIM - noisy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geim-vt">
+   GEIM-VT
   </a>
  </li>
 </ul>
@@ -571,8 +586,23 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geim-noisy-data">
+   GEIM - noisy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#pbdw-noisy-data">
+   PBDW - noisy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#tr-geim-noisy-data">
-   (TR-)GEIM - noisy data
+   TR-GEIM - noisy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geim-vt">
+   GEIM-VT
   </a>
  </li>
 </ul>
@@ -678,12 +708,109 @@ mv<span class="w"> </span>Case_00*<span class="w"> </span>TrainSet/.
 </section>
 <section id="geim-clean-data">
 <h2>GEIM - clean data<a class="headerlink" href="#geim-clean-data" title="Permalink to this heading">#</a></h2>
+<p>Change directory to <code class="docutils literal notranslate"><span class="pre">GEIM_s2_0.0001</span></code> and make sure that the file <code class="docutils literal notranslate"><span class="pre">test_folders.txt</span></code> generated with the test snapshots is in <code class="docutils literal notranslate"><span class="pre">GEIM_s2_0.0001/system</span></code>. The <strong>GEIM-Online</strong> solver takes as input the test snapshots and evaluates them at the sensors location through the magic sensors and this information is used to find the interpolant. Then, the solver computes the reconstruction error (average and maximum). To execute the solver for the scalar field <span class="math notranslate nohighlight">\(T\)</span>, the correspondent <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> must be set up as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Online_parameters</span>
+<span class="p">{</span>
+	<span class="n">field</span>        <span class="n">T</span><span class="p">;</span>			
+	<span class="n">msNumber</span>     <span class="mi">40</span><span class="p">;</span>		
+	<span class="n">foldersList</span>  <span class="p">(</span><span class="c1">#include &quot;test_folders.txt&quot;) ;	</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now in the terminal (path: <code class="docutils literal notranslate"><span class="pre">BuoyantCavity/ROM/GEIM_s2_0.0001</span></code>) execute the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ScalarGEIM_Online</span>
+</pre></div>
+</div>
+<p>In the offline phase, we have generated two additional folders considering <span class="math notranslate nohighlight">\(s^2= 0.0004\)</span> and <span class="math notranslate nohighlight">\(s^2=0.0016\)</span>, repeat the procedure to get the online reconstruction.</p>
 </section>
 <section id="pbdw-clean-data">
 <h2>PBDW - clean data<a class="headerlink" href="#pbdw-clean-data" title="Permalink to this heading">#</a></h2>
+<p>Change directory to <code class="docutils literal notranslate"><span class="pre">PBDW_T_WeakGreedy_s_0.0004</span></code> and make sure that the file <code class="docutils literal notranslate"><span class="pre">test_folders.txt</span></code> generated with the test snapshots is in <code class="docutils literal notranslate"><span class="pre">PBDW_T_WeakGreedy_s_0.0004/system</span></code>. The <strong>PBDW-Online</strong> solver takes as input the test snapshots and evaluates them at the sensors location through the basis sensors and this information is used to find the reconstruction. Then, the solver computes the reconstruction error (average and maximum). To execute the solver for the scalar field <span class="math notranslate nohighlight">\(T\)</span>, the correspondent <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> must be set up as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Online_parameters</span>
+<span class="p">{</span>
+	<span class="n">field</span> <span class="n">T</span><span class="p">;</span>				 
+	<span class="n">MaxSensors</span> <span class="mi">40</span><span class="p">;</span>			
+	<span class="n">BasisNumber</span> <span class="mi">20</span><span class="p">;</span>				
+	<span class="n">sensorsFolder</span>  <span class="s2">&quot;PBDW_T_WeakGreedy_s_0.0004&quot;</span><span class="p">;</span>	
+	<span class="n">foldersList</span>  <span class="p">(</span><span class="c1">#include &quot;test_folders.txt&quot;);		</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The input <code class="docutils literal notranslate"><span class="pre">sensorsFolder</span></code> is used to tell the solver from where the sensors have to be loaded.
+Now in the terminal (path: <code class="docutils literal notranslate"><span class="pre">BuoyantCavity/ROM/PBDW_T_WeakGreedy_s_0.0001</span></code>) execute the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ScalarPBDW_Online</span>
+</pre></div>
+</div>
+</section>
+<section id="geim-noisy-data">
+<h2>GEIM - noisy data<a class="headerlink" href="#geim-noisy-data" title="Permalink to this heading">#</a></h2>
+<p>Change directory to <code class="docutils literal notranslate"><span class="pre">GEIM_s2_0.0004</span></code> and make sure that the file <code class="docutils literal notranslate"><span class="pre">test_folders.txt</span></code> generated with the test snapshots is in <code class="docutils literal notranslate"><span class="pre">GEIM_s2_0.0004/system</span></code>. The main difference with respect to the standard solver is the addiction of noise to the measurement vector <span class="math notranslate nohighlight">\(\mathbf{y}\in\mathbb{R}^M\)</span> represented by</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    y_m = v_m(u(\cdot;\,\boldsymbol{\mu})) + \epsilon_m
+\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_m\)</span> models random noise as a random variable, i.i. with a zero-mean Gaussian distribution <span class="math notranslate nohighlight">\(\sim \mathcal{N}(0,\sigma^2)\)</span>. To execute the solver for the scalar field <span class="math notranslate nohighlight">\(T\)</span>, the correspondent <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> must be set up as follows (same as clean data)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Online_parameters</span>
+<span class="p">{</span>
+	<span class="n">field</span>        <span class="n">T</span><span class="p">;</span>			
+	<span class="n">msNumber</span>     <span class="mi">40</span><span class="p">;</span>		
+	<span class="n">foldersList</span>  <span class="p">(</span><span class="c1">#include &quot;test_folders.txt&quot;) ;	</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now in the terminal (path: <code class="docutils literal notranslate"><span class="pre">BuoyantCavity/ROM/GEIM_s2_0.0004</span></code>) execute the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ScalarGEIM_Online</span> <span class="o">-</span><span class="n">noise</span> <span class="mf">0.01</span>
+</pre></div>
+</div>
+<p>to have <span class="math notranslate nohighlight">\(\sigma = 0.01\)</span>.</p>
+</section>
+<section id="pbdw-noisy-data">
+<h2>PBDW - noisy data<a class="headerlink" href="#pbdw-noisy-data" title="Permalink to this heading">#</a></h2>
+<p>Change directory to <code class="docutils literal notranslate"><span class="pre">PBDW_T_WeakGreedy_s_0.0004</span></code> and make sure that the file <code class="docutils literal notranslate"><span class="pre">test_folders.txt</span></code> generated with the test snapshots is in <code class="docutils literal notranslate"><span class="pre">PBDW_T_WeakGreedy_s_0.0004/system</span></code>. The main difference with respect to the standard solver is the addiction of noise to the measurement vector <span class="math notranslate nohighlight">\(\mathbf{y}\in\mathbb{R}^M\)</span> represented by</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    y_m = v_m(u(\cdot;\,\boldsymbol{\mu})) + \epsilon_m
+\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_m\)</span> models random noise as a random variable, i.i. with a zero-mean Gaussian distribution <span class="math notranslate nohighlight">\(\sim \mathcal{N}(0,\sigma^2)\)</span>. To execute the solver for the scalar field <span class="math notranslate nohighlight">\(T\)</span>, the correspondent <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> must be set up as follows (same as clean data)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Online_parameters</span>
+<span class="p">{</span>
+	<span class="n">field</span> <span class="n">T</span><span class="p">;</span>				 
+	<span class="n">MaxSensors</span> <span class="mi">40</span><span class="p">;</span>			
+	<span class="n">BasisNumber</span> <span class="mi">20</span><span class="p">;</span>				
+	<span class="n">sensorsFolder</span>  <span class="s2">&quot;PBDW_T_WeakGreedy_s_0.0004&quot;</span><span class="p">;</span>	
+	<span class="n">foldersList</span>  <span class="p">(</span><span class="c1">#include &quot;test_folders.txt&quot;);		</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The input <code class="docutils literal notranslate"><span class="pre">sensorsFolder</span></code> is used to tell the solver from where the sensors have to be loaded.
+Now in the terminal (path: <code class="docutils literal notranslate"><span class="pre">BuoyantCavity/ROM/PBDW_T_WeakGreedy_s_0.0001</span></code>) execute the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ScalarPBDW_Online</span> <span class="o">-</span><span class="n">noise</span> <span class="mf">0.01</span>
+</pre></div>
+</div>
+<p>to have <span class="math notranslate nohighlight">\(\sigma = 0.01\)</span>.</p>
 </section>
 <section id="tr-geim-noisy-data">
-<h2>(TR-)GEIM - noisy data<a class="headerlink" href="#tr-geim-noisy-data" title="Permalink to this heading">#</a></h2>
+<h2>TR-GEIM - noisy data<a class="headerlink" href="#tr-geim-noisy-data" title="Permalink to this heading">#</a></h2>
+<p>Change directory to <code class="docutils literal notranslate"><span class="pre">GEIM_s2_0.0004</span></code> and make sure that the file <code class="docutils literal notranslate"><span class="pre">test_folders.txt</span></code> generated with the test snapshots is in <code class="docutils literal notranslate"><span class="pre">GEIM_s2_0.0004/system</span></code>. This solver is needed in presence of noisy data. To execute the solver for the scalar field <span class="math notranslate nohighlight">\(T\)</span>, the correspondent <code class="docutils literal notranslate"><span class="pre">dictionary</span></code> must be set up as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Online_parameters
+{
+	field       T;                 
+	msNumber    40;               
+	foldersList  (#include &quot;test_folders.txt&quot;) ; 
+	noise_std   0.01;	      
+	N_Repeated_Experiments 5;    
+}
+in which `noise_std` is the standard deviation $\sigma$ of the random noise and `N_Repeated_Experiments` tells the solver to compute the interpolant more times to have statically robust results.
+</pre></div>
+</div>
+<p>Now in the terminal (path: <code class="docutils literal notranslate"><span class="pre">BuoyantCavity/ROM/GEIM_s2_0.0004</span></code>) execute the following command</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ScalarTRGEIM</span>
+</pre></div>
+</div>
+<p>A new folder named <code class="docutils literal notranslate"><span class="pre">T_TR-GEIM_files</span></code> is created to store the results.</p>
+</section>
+<section id="geim-vt">
+<h2>GEIM-VT<a class="headerlink" href="#geim-vt" title="Permalink to this heading">#</a></h2>
 </section>
 </section>
 
@@ -724,7 +851,7 @@ mv<span class="w"> </span>Case_00*<span class="w"> </span>TrainSet/.
     <a class='right-next' id="next-link" href="online_results.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Online Phase</p>
+        <p class="prev-next-title">Results of the online phase</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

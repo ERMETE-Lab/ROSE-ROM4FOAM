@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Online Phase &#8212; ROM4FOAM&#39;s Docs</title>
+    <title>Results of the online phase &#8212; ROM4FOAM&#39;s Docs</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -50,6 +50,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Bibliography" href="../../biblio.html" />
@@ -310,7 +312,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Online Phase
+     Results of the online phase
     </a>
    </li>
   </ul>
@@ -378,6 +380,35 @@ title="Toggle navigation"
         
     </div>
     <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/Tutorials/BuoyantCavity/online_results.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
 <button onclick="toggleFullScreen()"
   class="headerbtn"
   data-toggle="tooltip"
@@ -505,8 +536,40 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clean-data">
-   Clean Data
+  <a class="reference internal nav-link" href="#comparison-of-the-reconstruction-error">
+   Comparison of the reconstruction error
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scalar-field-clean-data">
+     Scalar Field: clean data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vector-field-clean-data">
+     Vector Field: clean data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#impact-of-the-sensors-variance-to-the-interpolant-of-geim">
+   Impact of the sensors variance to the interpolant of GEIM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sensitivity-of-geim-to-noisy-data">
+   Sensitivity of GEIM to noisy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sensitivity-of-pbdw-to-noisy-data">
+   Sensitivity of PBDW to noisy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regularisation-via-tr-geim-for-noisy-data">
+   Regularisation via TR-GEIM for noisy data
   </a>
  </li>
 </ul>
@@ -518,7 +581,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Online Phase</h1>
+                <h1>Results of the online phase</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -529,8 +592,40 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#clean-data">
-   Clean Data
+  <a class="reference internal nav-link" href="#comparison-of-the-reconstruction-error">
+   Comparison of the reconstruction error
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#scalar-field-clean-data">
+     Scalar Field: clean data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#vector-field-clean-data">
+     Vector Field: clean data
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#impact-of-the-sensors-variance-to-the-interpolant-of-geim">
+   Impact of the sensors variance to the interpolant of GEIM
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sensitivity-of-geim-to-noisy-data">
+   Sensitivity of GEIM to noisy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sensitivity-of-pbdw-to-noisy-data">
+   Sensitivity of PBDW to noisy data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#regularisation-via-tr-geim-for-noisy-data">
+   Regularisation via TR-GEIM for noisy data
   </a>
  </li>
 </ul>
@@ -543,10 +638,421 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="online-phase">
-<h1>Online Phase<a class="headerlink" href="#online-phase" title="Permalink to this heading">#</a></h1>
-<section id="clean-data">
-<h2>Clean Data<a class="headerlink" href="#clean-data" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="results-of-the-online-phase">
+<h1>Results of the online phase<a class="headerlink" href="#results-of-the-online-phase" title="Permalink to this heading">#</a></h1>
+<p>This notebook reports some python code to generate useful results.</p>
+<p>In this tutorial we are going to analyse the output of each online solver, in particular the structure is the following:</p>
+<ul class="simple">
+<li><p><strong>Comparison of the reconstruction error for scalar fields</strong> for different algorithms (POD, EIM, GEIM and PBDW) using clean data;</p></li>
+<li><p><strong>Comparison of the reconstruction error for vector fields</strong> for different algorithms (POD and EIM) using clean data;</p></li>
+<li><p><strong>Impact of the sensors variance to the interpolant of GEIM</strong> using clean data;</p></li>
+<li><p><strong>Sensitivity of GEIM to noisy data</strong>;</p></li>
+<li><p><strong>Sensitivity of PBDW to noisy data</strong>;</p></li>
+<li><p><strong>Regularisation via TR-GEIM for noisy data</strong>;</p></li>
+<li><p><strong>Indirect Reconstruction with GEIM-VT</strong>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+
+<span class="n">var_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;U&#39;</span><span class="p">]</span>
+<span class="n">tex_var_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;T&#39;</span><span class="p">,</span> <span class="s1">&#39;\mathbf</span><span class="si">{u}</span><span class="s1">&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="comparison-of-the-reconstruction-error">
+<h2>Comparison of the reconstruction error<a class="headerlink" href="#comparison-of-the-reconstruction-error" title="Permalink to this heading">#</a></h2>
+<p>In this section, we are going to plot the average absolute and relative error between the reconstruction/interpolant and the true fields of the Test set, defined as follows for the generic field <span class="math notranslate nohighlight">\(\psi\)</span> (either scalar or vector)</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+E_M = \left\langle\left\| \psi(\boldsymbol{\mu}) - \mathcal{I}_M[\psi(\boldsymbol{\mu})]\right\|_{L^2}\right\rangle_{\boldsymbol{\mu}\in\Xi_{\text{test}}} \qquad \qquad
+\varepsilon_M = \left\langle \frac{\left\| \psi(\boldsymbol{\mu}) - \mathcal{I}_M[\psi(\boldsymbol{\mu})]\right\|_{L^2}}{\left\| \psi(\boldsymbol{\mu}) \right\|_{L^2}}\right\rangle_{\boldsymbol{\mu}\in\Xi_{\text{test}}} 
+\end{equation*}\]</div>
+<p>given <span class="math notranslate nohighlight">\(\mathcal{I}_M\)</span> the reconstruction operator using <span class="math notranslate nohighlight">\(M\)</span> basis functions.</p>
+<section id="scalar-field-clean-data">
+<h3>Scalar Field: clean data<a class="headerlink" href="#scalar-field-clean-data" title="Permalink to this heading">#</a></h3>
+<p>Let us first consider the case of the temperature field <span class="math notranslate nohighlight">\(T\)</span> for the following algorithm: POD, EIM, GEIM (only <span class="math notranslate nohighlight">\(s^2=0.0004\)</span>) and PBDW (only <span class="math notranslate nohighlight">\(s^2=0.0004\)</span>).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_scalar_AbsErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">clean_scalar_RelErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="n">field</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="s1">&#39;0.0004&#39;</span>
+
+<span class="c1"># Importing data</span>
+<span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./POD_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_reconstruction_POD_files/average_L2_absolute_error.txt&#39;</span><span class="p">)</span>
+<span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./POD_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_reconstruction_POD_files/average_L2_relative_error.txt&#39;</span><span class="p">)</span>
+
+<span class="c1"># clean_scalar_AbsErr[&#39;EIM&#39;] = np.loadtxt(&#39;./EIM_&#39;+field+&#39;_EIM_Online_files/average_L2_absolute_error.txt&#39;)[1:]</span>
+<span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;EIM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./EIM_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_EIM_Online_files/average_L2_relative_error.txt&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+
+<span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;GEIM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./CleanData/GEIM_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_GEIM_Online_files/average_L2_absolute_error.txt&#39;</span><span class="p">)</span>
+<span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;GEIM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./CleanData/GEIM_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_GEIM_Online_files/average_L2_relative_error.txt&#39;</span><span class="p">)</span>
+
+<span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;PBDW&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./CleanData/PBDW_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_WeakGreedy_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_PBDW_Online_files/average_L2_absolute_error.txt&#39;</span><span class="p">)</span>
+<span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;PBDW&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./CleanData/PBDW_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_WeakGreedy_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_PBDW_Online_files/average_L2_relative_error.txt&#39;</span><span class="p">)</span>
+
+<span class="n">ScalarTestErr_fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">turbo</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+         <span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;POD&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="c1"># plt.plot(np.arange(1,clean_scalar_AbsErr[&#39;EIM&#39;].size+1,1),</span>
+<span class="c1">#          clean_scalar_AbsErr[&#39;EIM&#39;], &#39;-^&#39;, c=c, label=r&quot;EIM&quot;)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;GEIM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+         <span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;GEIM&#39;</span><span class="p">],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;GEIM-$s^2=0.0004$&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;PBDW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+         <span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;PBDW&#39;</span><span class="p">],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;PBDW&quot;</span><span class="p">)</span>
+         
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Rank $M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Absolute Error $E_M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+
+
+<span class="n">color</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+         <span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;POD&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;EIM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+         <span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;EIM&#39;</span><span class="p">],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;EIM&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;GEIM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+         <span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;GEIM&#39;</span><span class="p">],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;GEIM-$s^2=0.0004$&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;PBDW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+         <span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;PBDW&#39;</span><span class="p">],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;PBDW&quot;</span><span class="p">)</span>
+         
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Rank $M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Relative Error $\varepsilon_M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># ScalarTestErr_fig.savefig(&#39;scalar_test_error_clean.pdf&#39;, format=&#39;pdf&#39;, dpi=300, bbox_inches=&#39;tight&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/online_results_4_0.png" src="../../_images/online_results_4_0.png" />
+</div>
+</div>
+</section>
+<section id="vector-field-clean-data">
+<h3>Vector Field: clean data<a class="headerlink" href="#vector-field-clean-data" title="Permalink to this heading">#</a></h3>
+<p>Let us first consider the case of the velocity field <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> for the following algorithm: POD and EIM.
+Only the relative error is calculated.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_vector_AbsErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">clean_vector_RelErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="n">field</span> <span class="o">=</span> <span class="s1">&#39;U&#39;</span>
+
+<span class="c1"># Importing data</span>
+<span class="c1"># clean_vector_AbsErr[&#39;POD&#39;]  = np.loadtxt(&#39;./POD_&#39;+field+&#39;/&#39;+field+&#39;_reconstruction_POD_files/average_L2_absolute_error.txt&#39;)</span>
+<span class="n">clean_vector_RelErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./POD_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_reconstruction_POD_files/average_L2_relative_error.txt&#39;</span><span class="p">)</span>
+
+<span class="c1"># clean_vector_AbsErr[&#39;EIM&#39;] = np.loadtxt(&#39;./EIM_&#39;+field+&#39;_EIM_Online_files/average_L2_absolute_error.txt&#39;)[1:]</span>
+<span class="n">clean_vector_RelErr</span><span class="p">[</span><span class="s1">&#39;EIM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./EIM_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_EIM_Online_files/average_L2_relative_error.txt&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">:]</span>
+
+
+<span class="n">VectorTestErr_fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">jet</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_vector_RelErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+         <span class="n">clean_vector_RelErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;POD&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_vector_RelErr</span><span class="p">[</span><span class="s1">&#39;EIM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+         <span class="n">clean_vector_RelErr</span><span class="p">[</span><span class="s1">&#39;EIM&#39;</span><span class="p">],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;EIM&quot;</span><span class="p">)</span>
+         
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Rank $M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;POD&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Relative Error $\varepsilon_M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># VectorTestErr_fig.savefig(&#39;vector_test_error_clean.pdf&#39;, format=&#39;pdf&#39;, dpi=300, bbox_inches=&#39;tight&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/online_results_6_0.png" src="../../_images/online_results_6_0.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="impact-of-the-sensors-variance-to-the-interpolant-of-geim">
+<h2>Impact of the sensors variance to the interpolant of GEIM<a class="headerlink" href="#impact-of-the-sensors-variance-to-the-interpolant-of-geim" title="Permalink to this heading">#</a></h2>
+<p>In this section, we are going to plot the average absolute and relative error between the interpolant of GEIM with clean data using different sensors (i.e., different values for <span class="math notranslate nohighlight">\(s^2\)</span>) and the true fields of the Test set, defined as follows for the generic field <span class="math notranslate nohighlight">\(\psi\)</span> (either scalar or vector)</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+E_M = \left\langle\left\| \psi(\boldsymbol{\mu}) - \mathcal{I}_M[\psi(\boldsymbol{\mu})]\right\|_{L^2}\right\rangle_{\boldsymbol{\mu}\in\Xi_{\text{test}}} \qquad \qquad
+\varepsilon_M = \left\langle \frac{\left\| \psi(\boldsymbol{\mu}) - \mathcal{I}_M[\psi(\boldsymbol{\mu})]\right\|_{L^2}}{\left\| \psi(\boldsymbol{\mu}) \right\|_{L^2}}\right\rangle_{\boldsymbol{\mu}\in\Xi_{\text{test}}} 
+\end{equation*}\]</div>
+<p>given <span class="math notranslate nohighlight">\(\mathcal{I}_M\)</span> the interpolant using <span class="math notranslate nohighlight">\(M\)</span> basis functions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">clean_GEIM_AbsErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">clean_GEIM_RelErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="n">field</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0.0001&#39;</span><span class="p">,</span> <span class="s1">&#39;0.0004&#39;</span><span class="p">,</span> <span class="s1">&#39;0.0016&#39;</span><span class="p">]</span>
+
+<span class="c1"># Importing data</span>
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)):</span>
+    <span class="n">clean_GEIM_AbsErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./CleanData/GEIM_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_GEIM_Online_files/average_L2_absolute_error.txt&#39;</span><span class="p">)</span>
+    <span class="n">clean_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./CleanData/GEIM_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_GEIM_Online_files/average_L2_relative_error.txt&#39;</span><span class="p">)</span>
+
+<span class="n">cleanGEIMTestErr_fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_GEIM_AbsErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">clean_GEIM_AbsErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;GEIM-$s^2= &quot;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Rank $M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">clean_GEIM_AbsErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_GEIM_AbsErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Absolute Error $E_M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+
+
+<span class="n">color</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">magma</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">)):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">clean_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;GEIM-$s^2= &quot;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;$&quot;</span><span class="p">)</span>
+         
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Rank $M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">clean_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Relative Error $\varepsilon_M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># cleanGEIMTestErr_fig.savefig(&#39;GEIMclean_test_error.pdf&#39;, format=&#39;pdf&#39;, dpi=300, bbox_inches=&#39;tight&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/online_results_8_0.png" src="../../_images/online_results_8_0.png" />
+</div>
+</div>
+</section>
+<section id="sensitivity-of-geim-to-noisy-data">
+<h2>Sensitivity of GEIM to noisy data<a class="headerlink" href="#sensitivity-of-geim-to-noisy-data" title="Permalink to this heading">#</a></h2>
+<p>Let us now consider noisy data, meaning that the measurements <span class="math notranslate nohighlight">\(\mathbf{y}\in\mathbb{R}^M\)</span> are represented as follows</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    y_m = v_m(u(\cdot;\,\boldsymbol{\mu})) + \epsilon_m
+\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_m\)</span> models random noise as a random variable, i.i. with a zero-mean Gaussian distribution <span class="math notranslate nohighlight">\(\sim \mathcal{N}(0,\sigma^2)\)</span>. Three values of <span class="math notranslate nohighlight">\(\sigma\)</span> will be considered (all with <span class="math notranslate nohighlight">\(s^2=0.0004\)</span>), namely</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\sigma = \{10^{-3},\,10^{-2},\,10^{-1}\}
+\end{equation*}\]</div>
+<p>The absolute and relative error defined as above will be plotted.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noisy_GEIM_AbsErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">noisy_GEIM_RelErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="n">field</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0.001&#39;</span><span class="p">,</span> <span class="s1">&#39;0.01&#39;</span><span class="p">,</span> <span class="s1">&#39;0.1&#39;</span><span class="p">]</span>
+
+<span class="c1"># Importing data</span>
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)):</span>
+    <span class="n">noisy_GEIM_AbsErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./NoisyData-noreg/GEIM_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_sigma_&#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_GEIM_Online_files/average_L2_absolute_error.txt&#39;</span><span class="p">)</span>
+    <span class="n">noisy_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./NoisyData-noreg/GEIM_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_sigma_&#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_GEIM_Online_files/average_L2_relative_error.txt&#39;</span><span class="p">)</span>
+
+<span class="n">noisyGEIMTestErr_fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_GEIM_AbsErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">clean_GEIM_AbsErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;GEIM-clean&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">noisy_GEIM_AbsErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">noisy_GEIM_AbsErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sigma = &quot;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Rank $M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">noisy_GEIM_AbsErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">noisy_GEIM_AbsErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Absolute Error $E_M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">color</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">magma</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">clean_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">clean_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;s2 = &#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;GEIM-clean&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">noisy_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">noisy_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sigma = &quot;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;$&quot;</span><span class="p">)</span>
+         
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Rank $M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">noisy_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">noisy_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Relative Error $\varepsilon_M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># noisyGEIMTestErr_fig.savefig(&#39;GEIMnoisy_test_error.pdf&#39;, format=&#39;pdf&#39;, dpi=300, bbox_inches=&#39;tight&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/online_results_10_0.png" src="../../_images/online_results_10_0.png" />
+</div>
+</div>
+</section>
+<section id="sensitivity-of-pbdw-to-noisy-data">
+<h2>Sensitivity of PBDW to noisy data<a class="headerlink" href="#sensitivity-of-pbdw-to-noisy-data" title="Permalink to this heading">#</a></h2>
+<p>Considering again noisy data, represented as before, the sensitivity to noise of PBDW will be investigated. Three values of <span class="math notranslate nohighlight">\(\sigma\)</span> will be considered (with <span class="math notranslate nohighlight">\(s^2=0.0004\)</span>), namely</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+\sigma = \{10^{-3},\,10^{-2},\,10^{-1}\}
+\end{equation*}\]</div>
+<p>The absolute and relative error defined as above will be plotted.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noisy_PBDW_AbsErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">noisy_PBDW_RelErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="n">field</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0.001&#39;</span><span class="p">,</span> <span class="s1">&#39;0.01&#39;</span><span class="p">,</span> <span class="s1">&#39;0.1&#39;</span><span class="p">]</span>
+
+<span class="c1"># Importing data</span>
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)):</span>
+    <span class="n">noisy_PBDW_AbsErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./NoisyData-noreg/PBDW_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_WeakGreedy_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_sigma_&#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_PBDW_Online_files/average_L2_absolute_error.txt&#39;</span><span class="p">)</span>
+    <span class="n">noisy_PBDW_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./NoisyData-noreg/PBDW_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_WeakGreedy_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;_sigma_&#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_PBDW_Online_files/average_L2_relative_error.txt&#39;</span><span class="p">)</span>
+
+<span class="n">noisyPBDWTestErr_fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="n">color</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;PBDW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">clean_scalar_AbsErr</span><span class="p">[</span><span class="s1">&#39;PBDW&#39;</span><span class="p">],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;PBDW-clean&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">noisy_PBDW_AbsErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">noisy_PBDW_AbsErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sigma = &quot;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Rank $M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">noisy_PBDW_AbsErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">noisy_PBDW_AbsErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Absolute Error $E_M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">color</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">cm</span><span class="o">.</span><span class="n">magma</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span><span class="o">+</span><span class="mi">2</span><span class="p">)))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;PBDW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+        <span class="n">clean_scalar_RelErr</span><span class="p">[</span><span class="s1">&#39;PBDW&#39;</span><span class="p">],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;PBDW-clean&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)):</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">noisy_PBDW_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">noisy_PBDW_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">c</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$\sigma = &quot;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s2">&quot;$&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Rank $M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">noisy_PBDW_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="n">noisy_PBDW_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Relative Error $\varepsilon_M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># noisyGEIMTestErr_fig.savefig(&#39;GEIMnoisy_test_error.pdf&#39;, format=&#39;pdf&#39;, dpi=300, bbox_inches=&#39;tight&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/online_results_12_0.png" src="../../_images/online_results_12_0.png" />
+</div>
+</div>
+</section>
+<section id="regularisation-via-tr-geim-for-noisy-data">
+<h2>Regularisation via TR-GEIM for noisy data<a class="headerlink" href="#regularisation-via-tr-geim-for-noisy-data" title="Permalink to this heading">#</a></h2>
+<p>In order to retrieve robustness and stability, the Tikhonov regularisation is used. Only the case with <span class="math notranslate nohighlight">\(s^2=0.0004\)</span> and <span class="math notranslate nohighlight">\(\sigma = 0.01\)</span> are going to be plotted.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">noisy_TRGEIM_RelErr</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+<span class="n">field</span> <span class="o">=</span> <span class="s1">&#39;T&#39;</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0.01&#39;</span><span class="p">]</span>
+
+<span class="c1"># Importing data</span>
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)):</span>
+    <span class="n">noisy_TRGEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;./NoisyData-reg/GEIM_&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_s_&#39;</span><span class="o">+</span><span class="n">s2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;/&#39;</span><span class="o">+</span><span class="n">field</span><span class="o">+</span><span class="s1">&#39;_TR-GEIM_files/average_L2_relative_error_noiseStd_&#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;.txt&#39;</span><span class="p">)</span>
+                                                                                   
+<span class="n">noisyTRGEIMTestErr_fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span> <span class="n">figsize</span><span class="o">=</span> <span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">),</span><span class="mi">4</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">ll</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">sigma</span><span class="p">),</span><span class="n">ll</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">noisy_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+                 <span class="n">noisy_GEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">autumn</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;GEIM&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">noisy_TRGEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span>
+                 <span class="n">noisy_TRGEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]],</span> <span class="s1">&#39;-^&#39;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">autumn</span><span class="p">(</span><span class="mi">200</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;TR-GEIM&quot;</span><span class="p">)</span>
+         
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Rank $M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">noisy_TRGEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">noisy_TRGEIM_RelErr</span><span class="p">[</span><span class="s1">&#39;sigma = &#39;</span><span class="o">+</span><span class="n">sigma</span><span class="p">[</span><span class="n">ll</span><span class="p">]]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Relative Error $\varepsilon_M$&quot;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;major&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s1">&#39;minor&#39;</span><span class="p">,</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">framealpha</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span> <span class="n">loc</span> <span class="o">=</span> <span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># noisyTRGEIMTestErr_fig.savefig(&#39;TRGEIMnoisy_test_error.pdf&#39;, format=&#39;pdf&#39;, dpi=300, bbox_inches=&#39;tight&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/online_results_14_0.png" src="../../_images/online_results_14_0.png" />
+</div>
+</div>
 </section>
 </section>
 

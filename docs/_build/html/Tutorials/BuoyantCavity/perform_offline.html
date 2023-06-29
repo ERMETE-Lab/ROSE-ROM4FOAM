@@ -312,7 +312,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="online_results.html">
-     Online Phase
+     Results of the online phase
     </a>
    </li>
   </ul>
@@ -526,6 +526,11 @@ title="Print to PDF"
    PBDW
   </a>
  </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geim-vt">
+   GEIM-VT
+  </a>
+ </li>
 </ul>
 
     </nav>
@@ -563,6 +568,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pbdw">
    PBDW
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#geim-vt">
+   GEIM-VT
   </a>
  </li>
 </ul>
@@ -652,7 +662,7 @@ title="Print to PDF"
 <p>This algorithm can be performed for scalar fields only.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The extension to vector fields is a matter of future studies and development, see <span id="id1">[<a class="reference internal" href="../../biblio.html#id24" title="Carolina Introini. Advanced modelling and stability analysis for nuclear reactors. PhD thesis, Politecnico di Milano, 2021.">10</a>]</span>.</p>
+<p>The extension to vector fields is a matter of future studies and development, see <span id="id1">[<a class="reference internal" href="../../biblio.html#id25" title="Carolina Introini. Advanced modelling and stability analysis for nuclear reactors. PhD thesis, Politecnico di Milano, 2021.">11</a>]</span>.</p>
 </div>
 <p>The first thing we need to set up is the <strong>dictionary</strong> of the solver for GEIM as follows for <span class="math notranslate nohighlight">\(T\)</span></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Offline_parameters</span>
@@ -717,6 +727,36 @@ g_k = g(\mathbf{x}-\mathbf{x}_k; s) =\displaystyle \frac{e^{-\frac{\|{\mathbf{x}
 </pre></div>
 </div>
 <p>The solver creates a folder, named <code class="docutils literal notranslate"><span class="pre">PBDW_T_WeakGreedy_s_0.0004</span></code> (in this case) containing the PBDW basis function and basis sensors, in addiction to some text files with the train error, the modal coefficients, output of the sensor placement algorithms. For further details, see the specific <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file for this solver. For the pressure <span class="math notranslate nohighlight">\(p\)</span> it is sufficient to write <em>p</em> instead of <em>T</em> in the dict.</p>
+</section>
+<section id="geim-vt">
+<h2>GEIM-VT<a class="headerlink" href="#geim-vt" title="Permalink to this heading">#</a></h2>
+<p>This algorithm can be used for indirect reconstruction purposes, estimating the fields (velocity <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> and pressure <span class="math notranslate nohighlight">\(p\)</span> for this implementation) from the measuremnts of only one scalar field (temperature <span class="math notranslate nohighlight">\(T\)</span> in this case).</p>
+<p>The first thing we need to set up is the <strong>dictionary</strong> of the solver for GEIM as follows for <span class="math notranslate nohighlight">\(T\)</span></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Offline_parameters</span>
+<span class="p">{</span>
+	<span class="n">error</span>      <span class="mf">1e-8</span><span class="p">;</span>            
+	<span class="n">MaxSensorsNumber</span> <span class="mi">50</span><span class="p">;</span>         
+	<span class="n">SensorsVariance</span> <span class="mf">0.0004</span><span class="p">;</span>      
+
+	<span class="n">foldersList</span> <span class="p">(</span><span class="c1">#include &quot;train_folders.txt&quot;) ;         </span>
+	<span class="o">//</span> <span class="n">SensorsPositions</span> <span class="p">(</span> <span class="p">(</span><span class="mf">0.1</span> <span class="mf">0.5</span> <span class="mf">0.3</span><span class="p">)</span> <span class="p">(</span><span class="mf">0.6</span> <span class="mf">0.8</span> <span class="mf">0.9</span><span class="p">)</span> <span class="p">(</span><span class="mf">0.25</span> <span class="mf">0.41</span> <span class="mf">0.9</span><span class="p">)</span> <span class="p">);</span>           
+<span class="p">}</span> 
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The input <code class="docutils literal notranslate"><span class="pre">SensorsVariance</span></code> is the parameter <span class="math notranslate nohighlight">\(s^2\)</span> of the Gaussian kernel centred in <span class="math notranslate nohighlight">\(\mathbf{x}_k\)</span> of the sensors, i.e.</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+g_k = g(\mathbf{x}-\mathbf{x}_k; s) =\displaystyle \frac{e^{-\frac{\|{\mathbf{x}-\mathbf{x}_k}\|_2^2}{2s^2}}}{\displaystyle \int_\Omega e^{-\frac{\|{\mathbf{x}-\mathbf{x}_k}\|_2^2}{2s^2}}\, d\Omega}
+\end{equation*}\]</div>
+</div>
+<p>The input <code class="docutils literal notranslate"><span class="pre">SensorsPositions</span></code> is optional, if nothing is entered all the points in the mesh are used for the centers <span class="math notranslate nohighlight">\(\mathbf{x}_k\)</span>, otherwise only some locations are considered.</p>
+<p>We are now ready to launch the GEIM solver for scalar field, by simply typing in the terminal</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>GEIM-VT_Offline
+</pre></div>
+</div>
+<p>The solver creates a folder, named <code class="docutils literal notranslate"><span class="pre">GEIM-VT_s_0.0004</span></code> (in this case) containing the GEIM magic functions for all the fields and magic sensors for temperature only, in addiction to some text files with the train error, the modal coefficients, their average and standard deviation (for TR-GEIM), the Lebesgue constant <span class="math notranslate nohighlight">\(\Lambda_M\)</span> and the GEIM matrix <span class="math notranslate nohighlight">\(B\)</span>. For further details, see the specific <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file for this solver.</p>
 </section>
 </section>
 

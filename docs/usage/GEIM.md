@@ -8,8 +8,6 @@ There are 3 folders containing the version of the solver for scalar field:
 - ScalarGEIM_Online (online reconstruction of the field using **synthetic data**)
 - ScalarTR-GEIM (online reconstruction of the field using **synthetic data** polluted by noise, regularised version)
 
-The last is a novel regularised approach proposed in {cite}`Introini2023_TRGEIM` which adopts the Tikhonov regularisation to retrieve stability of the method.
-
 Here we report the algorithm for scalar fields (without regularisation).
 
 ```{image} ../images/chap1/GEIM-algo.png
@@ -18,3 +16,7 @@ Here we report the algorithm for scalar fields (without regularisation).
 :width: 1000px
 :align: center
 ```
+
+## Tikhonov regularisation
+
+As proved in {cite}`GEIM_noise`, the GEIM algorithm is not robust in presence of random noise, hence stabilisation techniques are required. Following the work of {cite}`Introini2023_TRGEIM` which adopts the Tikhonov regularisation to retrieve stability of the method, in this library this method is used to keep the error bounded and to retrieve robustness in presence of noisy data.

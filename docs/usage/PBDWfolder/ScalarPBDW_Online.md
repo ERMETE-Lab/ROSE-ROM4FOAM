@@ -31,7 +31,7 @@ An example of *PBDWsolverDict* can be found in *application/PBDW/ScalarPBDW_Onli
 Online_parameters
 {
 	field T;				<---- ScalarField on which PBDW is performed 
-	msNuMaxSensorsber 20;			<---- number of PBDW magic sensors to use
+	MaxSensors 20;				<---- number of PBDW magic sensors to use
 	BasisNumber 10;				<---- number of PBDW basis functions to use
 	sensorsFolder  "sensorsFolderName";	<----- name of the folder in which the sensors are saved
 	foldersList  ( 

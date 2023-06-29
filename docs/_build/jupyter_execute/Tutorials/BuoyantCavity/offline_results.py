@@ -10,18 +10,12 @@
 # - **Analysis of the Lebesgue Constant for EIM** for the different fields;
 # - **Analysis of the Lebesgue Constant for GEIM** for various point spreads;
 # - **Comparison of the train error** for different algorithms (POD, GEIM and WeakGreedy).
-# 
-# This notebook can be directly executed in the `TrainSet` to generate the images, here below are listed the required packages.
 
 # In[1]:
 
 
 import numpy as np
-import pandas as pd
-import os
-
 import matplotlib.pyplot as plt
-from matplotlib import rcParams
 from matplotlib import cm
 
 var_names = ['T', 'U']
@@ -173,7 +167,7 @@ c = next(color)
 plt.plot(np.arange(1,AbsTrainingErr['Weak'].size+1,1),
          AbsTrainingErr['Weak'], '-^', c=c, label=r"Weak")
          
-plt.xlabel(r"Rank $N$",fontsize=15)
+plt.xlabel(r"Rank $M$",fontsize=15)
 plt.xticks(np.arange(0,50+1,5))
 plt.xlim(1,50)
 plt.ylabel(r"Absolute Error $E_M$",fontsize=15)
@@ -194,7 +188,7 @@ c = next(color)
 plt.plot(np.arange(1,RelTrainingErr['Weak'].size+1,1),
          RelTrainingErr['Weak'], '-^', c=c, label=r"Weak")
          
-plt.xlabel(r"Rank $N$",fontsize=15)
+plt.xlabel(r"Rank $M$",fontsize=15)
 plt.xticks(np.arange(0,50+1,5))
 plt.xlim(1,50)
 plt.ylabel(r"Relative Error $\varepsilon_M$",fontsize=15)
