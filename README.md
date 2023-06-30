@@ -36,7 +36,7 @@ This folder contains several algorithms, most of them divided in the typical Off
 - **Empirical Interpolation Method** (EIM), for synthetic data only.
 - **Generalized Empirical Interpolation Method** (GEIM), for synthetic data only (polluted or not by random noise). The Tikhonov regularisation is used (TR-GEIM) to treat noisy measures.
 
-- **Parametrized-Background Data-Weak** (PBDW) formulation, for synthetic data only (polluted or not by random noise). The reduced space can be built either with WeakGreedy or GEIM, whereas the sensors selection is performed through GEIM itself (or SGREEDY?).
+- **Parametrized-Background Data-Weak** (PBDW) formulation, for synthetic data only (polluted or not by random noise). The reduced space can be built either with WeakGreedy or GEIM, whereas the sensors selection is performed through GEIM itself or SGREEDY.
 - **Proper Orthogonal Decomposition** (POD), for synthetic data only. Moreover, the POD with Interpolation (POD-I) is implemented.
 - The **Vectorial Treatment for GEIM** (GEIM-VT), for synthetic data only (polluted or not by random noise), regularization is implemented through Tikhonov only.
 
