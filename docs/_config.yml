@@ -36,6 +36,7 @@ parse:
 sphinx:
   extra_extensions:
     - sphinx_proof
+
 # Information about where the book exists on the web
 repository:
   url: https://github.com/executablebooks/jupyter-book  # Online location of your book
