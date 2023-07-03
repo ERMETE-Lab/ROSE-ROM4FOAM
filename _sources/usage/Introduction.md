@@ -2,7 +2,7 @@
 
 This library is conceived to be a collection of solvers to be used in OpenFOAM-v6.
 
-Three algorithms have been implemented (with their extensions):
+Four algorithms have been implemented (with their extensions):
 
 1. Proper Orthogonal Decomposition (POD): with projection for the online phase
 2. Empirical Interpolation Method (EIM)
@@ -34,15 +34,3 @@ Moreover, some useful routines have been implemented in the src/MOR/MOR folder t
 \|\phi\|_{L^\infty} =\max\limits_\Omega |\phi|\qquad \qquad 
 \|\mathbf{u}\|_{L^\infty} =\max\limits_\Omega \|\mathbf{u}\|_2
 \end{equation*}
-
-## Installation notes
-
-To compile all the application execute
-```console
-./Allwmake.sh
-``` 
-in the terminal and to clean every solver
-```console
-./Allclean.sh
-```
-in the terminal. Otherwise, execute *wmake* and/or *wclean* in the folder of the solver.

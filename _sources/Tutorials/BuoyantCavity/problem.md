@@ -46,8 +46,11 @@ Re\in[15,\,150]\qquad \qquad Ri\in[0.2, \,5]
 The geometrical domain has been discretized using a uniform $128\times 128$ grid and the steady-state solver for buoyant, laminar flow of incompressible fluids *buoyantBoussinesqSimpleFoam* has been used.
 
 ## Generation of the snapshots
-In the ... folder, there are a subfolder `BaseCase` and a script `allrun.py` which can be used to solve this problem for various values of $Re$ and $Ri$; in particular, it's possible to specify which solutions are desired. 
+In the `Tutorials/BuoyantCavity` folder, there are a subfolder `BaseCase` and a script [`allrun.py`](https://github.com/ROSE-Polimi/ROM4FOAM/blob/main/Tutorials/BuoyantCavity/allrun.py) which can be used to solve this problem for various values of $Re$ and $Ri$; in particular, it's possible to specify which solutions are desired. 
 
+The number of processor to be used can be set as well as the desired values of $Re $ and $Ri$, let us see how this works to generate the Train and Test set.
+
+### Train Set
 The **Train Set** of snapshots is given by
 \begin{equation*}
 Re\in[15:5:150]\qquad \text{ and } \qquad Ri\in[0.2:0.4:5]
@@ -57,15 +60,36 @@ correspondent in Python to
 dRe = 5.
 dRi = 0.4
 
-Re = np.arange(15,  150+dRe/2, dRe)
-Ri = np.arange(0.2,   5+dRi/2, dRi)
+print('Creating Train Snapshots')
+Re = np.arange(15,  150+dRe/2, dRe) # [15, 150]
+Ri = np.arange(0.2,   5+dRi/2, dRi) # [0.2, 1., 5.]
+if not os.path.exists(w_dir+'/TrainSet'):
+        os.system("mkdir "+w_dir+'/TrainSet')
 ```
 By executing this python code (requires `numpy, pandas, matplotlib` and `os`) with
 ```bash
 python allrun.py
 ```
-The snapshots are generated into `TrainSet` folder (created by the script itself, if required). Then, execute another python script
-```bash
-python create_folder_list.py
+The snapshots are generated into `TrainSet` folder (created by the script itself, if required). Moreover, the code generates a `train_folders.txt` file containing a list of the names of the folders with the snapshots.
+
+### Test Set
+The **Test Set** of snapshots is given by
+\begin{equation*}
+Re\in[17.5:5:147.5]\qquad \text{ and } \qquad Ri\in[0.4:0.4:4.8]
+\end{equation*}
+correspondent in Python to
+```python
+dRe = 5.
+dRi = 0.4
+
+print('Creating Test Snapshots')
+Re = np.arange(15+dRe/2,  150+dRe/2, dRe) 
+Ri = np.arange(0.2+dRi/2,   5+dRi/2, dRi)
+if not os.path.exists(w_dir+'/TestSet'):
+        os.system("mkdir "+w_dir+'/TestSet')
 ```
-to generate a `train_folders.txt` file containing a list of the names of the folders with the snapshots.
+By executing this python code (requires `numpy, pandas, matplotlib` and `os`) with
+```bash
+python allrun.py
+```
+The snapshots are generated into `TestSet` folder (created by the script itself, if required). Moreover, the code generates a `test_folders.txt` file containing a list of the names of the folders with the snapshots.

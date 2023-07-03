@@ -120,6 +120,11 @@ const thebe_selector_output = ".output, .cell_output"
    Introduction
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation_notes.html">
+   Installation notes
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -287,12 +292,41 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weakgreedy-algorithm">
+   WeakGreedy algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sgreedy-algorithm">
+   SGREEDY algorithm
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -304,6 +338,24 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#weakgreedy-algorithm">
+   WeakGreedy algorithm
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sgreedy-algorithm">
+   SGREEDY algorithm
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -313,17 +365,82 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="pbdw-parameterised-background-data-weak-formulation">
 <h1>PBDW - Parameterised-Background Data-Weak formulation<a class="headerlink" href="#pbdw-parameterised-background-data-weak-formulation" title="Permalink to this heading">#</a></h1>
-<p>The <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/nme.4747">Parameterised-Background Data-Weak</a> (PBDW) was introduced in <span id="id1">[<a class="reference internal" href="../biblio.html#id20" title="Yvon Maday, Anthony Patera, James Penn, and Masayuki Yano. A parameterized-background data-weak approach to variational data assimilation: formulation, analysis, and application to acoustics. International Journal for Numerical Methods in Engineering, 2014. doi:10.1002/nme.4747.">15</a>]</span> as a practical algorithm to general variational data assimilation</p>
+<p>The <a class="reference external" href="https://onlinelibrary.wiley.com/doi/10.1002/nme.4747">Parameterised-Background Data-Weak</a> (PBDW) was introduced in <span id="id1">[<a class="reference internal" href="../biblio.html#id21" title="Yvon Maday, Anthony Patera, James Penn, and Masayuki Yano. A parameterized-background data-weak approach to variational data assimilation: formulation, analysis, and application to acoustics. International Journal for Numerical Methods in Engineering, 2014. doi:10.1002/nme.4747.">17</a>]</span> as a practical algorithm to general variational data assimilation</p>
 <div class="amsmath math notranslate nohighlight">
 \[\begin{equation*}
-u^\star_\xi = \text{arg min}_{u\in\mathcal{U}}\;\xi ||u-u^{bk}||_{L^2(\Omega)}^2+\frac{1}{M}\sum_{m=1}^M\left(v_m(u)-y_m^{obs}\right)^2
+u^\star_\xi = \text{arg }\min\limits_{u\in\mathcal{U}}\;\xi ||u-u^{bk}||_{L^2(\Omega)}^2+\frac{1}{M}\sum_{m=1}^M\left(v_m(u)-y_m^{obs}\right)^2
 \end{equation*}\]</div>
-<p>The repository implements the algorithm in OpenFOAM, applied to scalar fields only, the details of the implemented version of the formulation can be found in <span id="id2">[<a class="reference internal" href="../biblio.html#id3" title="\underline \textbf Stefano Riva, Carolina Introini, Stefano Lorenzi, and Antonio Cammi. Hybrid data assimilation methods, Part I: Numerical comparison between GEIM and PBDW. Annals of Nuclear Energy, 190:109864, 2023. URL: https://www.sciencedirect.com/science/article/pii/S0306454923001834, doi:https://doi.org/10.1016/j.anucene.2023.109864.">1</a>]</span>.</p>
+<p>It has been shown in <span id="id2">[<a class="reference internal" href="../biblio.html#id18" title="Tommaso Taddei. Model order reduction methods for data assimilation; state estimation and structural health monitoring. PhD thesis, Massachusetts Institute of Technology, 2016. doi:10.13140/RG.2.2.16001.45928.">25</a>]</span> that this can be written as a weak formulation to be later converted into a linear system of small dimension. The state estimation can be written as a linear combination in the following way</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    u_\xi^\star (\mathbf{x}) = \sum_{m=1}^M \gamma_m\cdot g_m(\mathbf{x})+\sum_{n=1}^N z_n\cdot \zeta_n(\mathbf{x}),
+\end{equation*}\]</div>
+<p>in which the first summation represents the correction term related to the measurements, whereas the latter is the part arising from the reduced basis approximation of the snapshots space. The coefficients are the solution of the following linear system</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+	\left[ 
+	\begin{array}{ccc}
+		\xi M I+A&amp; &amp; K  \\ &amp; &amp; \\
+		K^T &amp; &amp; 0
+	\end{array}
+	\right] \cdot
+	\left[ 
+	\begin{array}{c}
+		\boldsymbol{\gamma}_\xi^\star \\  \\\mathbf{z}_\xi^\star
+	\end{array}
+	\right]   =
+	\left[ 
+	\begin{array}{c}
+		\mathbf{y}^{obs} \\  \\\mathbf{0}
+	\end{array}
+	\right]
+\end{equation*}\]</div>
+<p>provided the following definitions: let <span class="math notranslate nohighlight">\(A\in\mathbb{R}^{M\times M}\)</span> and <span class="math notranslate nohighlight">\(K\in\mathbb{R}^{M\times N}\)</span> matrices, defined as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+	\begin{split}
+		A_{mm'}&amp;=\left(g_m,\,g_{m'}\right)_{L^2(\Omega)}\qquad \qquad\quad\;\; m,m' = 1, \dots M,\\
+		K_{mn}&amp;=\left(g_m,\,\zeta_{n}\right)_{L^2(\Omega)}= v_m(\zeta_n)\qquad m= 1, \dots M\quad n= 1, \dots, N.
+	\end{split}
+\end{equation*}\]</div>
+<p>The algorithm is implemented in OpenFOAM, applied to scalar fields only, the details of the implemented version of the formulation can be found in <span id="id3">[<a class="reference internal" href="../biblio.html#id3" title="Stefano Riva, Carolina Introini, Stefano Lorenzi, and Antonio Cammi. Hybrid data assimilation methods, Part I: Numerical comparison between GEIM and PBDW. Annals of Nuclear Energy, 190:109864, 2023. URL: https://www.sciencedirect.com/science/article/pii/S0306454923001834, doi:https://doi.org/10.1016/j.anucene.2023.109864.">21</a>]</span>.</p>
 <p>There are 2 folders containing the offline and online phase of the algorithm.</p>
 <ul class="simple">
 <li><p>ScalarPBDW_Offline</p></li>
 <li><p>ScalarPBDW_Online</p></li>
 </ul>
+<p>The PBDW is a general framework to combine data and mathematical models approximated through reduced basis techniques, hence it can accomodate different techniques to generate the basis functions and the basis sensors.</p>
+<p>In this work, the default option is given by the couple WeakGreedy+SGREEDY, alternatevely the greedy procedure of GEIM is used.</p>
+<section id="weakgreedy-algorithm">
+<h2>WeakGreedy algorithm<a class="headerlink" href="#weakgreedy-algorithm" title="Permalink to this heading">#</a></h2>
+<p>The rationale behind this algorithm is quite similar to the GEIM one, and the main difference between the two stands in the generation of the basis functions.</p>
+<p>The first iteration starts by selecting the generating function</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+    u_1(\mathbf{x}) = \text{arg } \max\limits_{u\in\mathcal{U}} \|{u(\mathbf{x};\mu)}\|_{L^2(\Omega)}
+\end{equation*}\]</div>
+<p>and the correspondent basis function as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+	\zeta_1(\mathbf{x}) = \frac{u_1(\mathbf{x})}{\|{u_1(\mathbf{x})}\|_{L^2(\Omega)}}\qquad\qquad Z_1 = \text{span}\{\zeta_1\}
+\end{equation*}\]</div>
+<p>Then the main loop, where <span class="math notranslate nohighlight">\(2\leq M \leq M_{max}\)</span>, begins: the generating function is selected as the one maximizing the error</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+	u_M(\mathbf{x}) = \text{arg }\max\limits_{u\in\mathcal{U}} E_{M-1}[u] = \text{arg }\max\limits_{u\in\mathcal{U}} \left\|{u(\mathbf{x};\mu)-\sum_{i = 1}^{M-1}z_i(\mu)\cdot \zeta_i(\mathbf{x})}\right\|_{L^2(\Omega)}
+\end{equation*}\]</div>
+<p>where <span class="math notranslate nohighlight">\(z_i = \left(u, \zeta_i\right)_{L^2(\Omega)}\)</span> and <span class="math notranslate nohighlight">\(E_{M-1}\)</span> is the reconstruction error at the <span class="math notranslate nohighlight">\(M-\)</span>th iteration. The generating function is later orthonormalized with respect to the basis, using the Gram-Schmidt procedure and accordingly the reduced space will be defined as</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{equation*}
+	Z_M = \text{span}\{\zeta_1, \dots, \zeta_M\}
+\end{equation*}\]</div>
+<p><span class="math notranslate nohighlight">\(E_{M-1}\)</span> may be replaced by a proper error estimator <span class="math notranslate nohighlight">\(\Delta_{M-1}\geq E_{M-1}\)</span>, which allows a speed up of the calculations.</p>
+</section>
+<section id="sgreedy-algorithm">
+<h2>SGREEDY algorithm<a class="headerlink" href="#sgreedy-algorithm" title="Permalink to this heading">#</a></h2>
+<p>This algorithm maximizes the <em>inf-sup</em> constant <span class="math notranslate nohighlight">\(\beta_{N,M}\)</span> in a greedy manner <span id="id4">[<a class="reference internal" href="../biblio.html#id26" title="Willy Haik, Yvon Maday, and Ludovic Chamoin. A real-time variational data assimilation method with data-driven model enrichment for time-dependent problems. Computer Methods in Applied Mechanics and Engineering, 405:115868, 2023. URL: https://www.sciencedirect.com/science/article/pii/S0045782522008246, doi:https://doi.org/10.1016/j.cma.2022.115868.">9</a>, <a class="reference internal" href="../biblio.html#id22" title="Y. Maday, O. Mula, A. T. Patera, and M. Yano. The Generalized Empirical Interpolation Method: Stability theory on Hilbert spaces with an application to the Stokes equation. Computer Methods in Applied Mechanics and Engineering, 287:310–334, 2015. doi:10.1016/j.cma.2015.01.018.">14</a>]</span>, the main difference with respect to GEIM is that this procedure works also for <span class="math notranslate nohighlight">\(M&gt;N\)</span>, hence we can place more sensors <span class="math notranslate nohighlight">\(M\)</span> than the number of basis function <span class="math notranslate nohighlight">\(N\)</span> used; furthermore SGREEDY is equivalent to GEIM are equivalent if <span class="math notranslate nohighlight">\(M=N\)</span>. The details are reported in following algorithm.</p>
+<a class="bg-primary mb-1 reference internal image-reference" href="../_images/SGREEDY-algo.png"><img alt="NRGlogo" class="bg-primary mb-1 align-center" src="../_images/SGREEDY-algo.png" style="width: 1000px;" /></a>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

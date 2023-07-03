@@ -118,6 +118,11 @@ const thebe_selector_output = ".output, .cell_output"
    Introduction
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="installation_notes.html">
+   Installation notes
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -285,12 +290,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tikhonov-regularisation">
+   Tikhonov regularisation
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -302,6 +331,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tikhonov-regularisation">
+   Tikhonov regularisation
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -311,16 +353,19 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="geim-generalised-empirical-interpolation-method">
 <h1>GEIM - Generalised Empirical Interpolation Method<a class="headerlink" href="#geim-generalised-empirical-interpolation-method" title="Permalink to this heading">#</a></h1>
-<p>The <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-88-470-2592-9_13">Generalised Empirical Interpolation Method</a> was firstly presented in <span id="id1">[<a class="reference internal" href="../biblio.html#id2" title="Yvon Maday and Olga Mula. A Generalized Empirical Interpolation Method: Application of Reduced Basis Techniques to Data Assimilation, pages 221–235. Springer Milan, Milano, 2013. URL: https://doi.org/10.1007/978-88-470-2592-9_13, doi:10.1007/978-88-470-2592-9_13.">14</a>]</span> and in literature several extension and additional studies are present. In this repository, the algorithm is implemented in OpenFOAM, to scalar field only.</p>
+<p>The <a class="reference external" href="https://link.springer.com/chapter/10.1007/978-88-470-2592-9_13">Generalised Empirical Interpolation Method</a> was firstly presented in <span id="id1">[<a class="reference internal" href="../biblio.html#id2" title="Yvon Maday and Olga Mula. A Generalized Empirical Interpolation Method: Application of Reduced Basis Techniques to Data Assimilation, pages 221–235. Springer Milan, Milano, 2013. URL: https://doi.org/10.1007/978-88-470-2592-9_13, doi:10.1007/978-88-470-2592-9_13.">16</a>]</span> and in literature several extension and additional studies are present. In this repository, the algorithm is implemented in OpenFOAM, to scalar field only.</p>
 <p>There are 3 folders containing the version of the solver for scalar field:</p>
 <ul class="simple">
 <li><p>ScalarGEIM_Offline (generation of the magic function and points)</p></li>
 <li><p>ScalarGEIM_Online (online reconstruction of the field using <strong>synthetic data</strong>)</p></li>
 <li><p>ScalarTR-GEIM (online reconstruction of the field using <strong>synthetic data</strong> polluted by noise, regularised version)</p></li>
 </ul>
-<p>The last is a novel regularised approach proposed in <span id="id2">[<a class="reference internal" href="../biblio.html#id19" title="Carolina Introini, Simone Cavalleri, Stefano Lorenzi, Stefano Riva, and Antonio Cammi. Stabilization of generalized empirical interpolation method (geim) in presence of noise: a novel approach based on tikhonov regularization. Computer Methods in Applied Mechanics and Engineering, 404:115773, 2023. URL: https://www.sciencedirect.com/science/article/pii/S0045782522007290, doi:https://doi.org/10.1016/j.cma.2022.115773.">10</a>]</span> which adopts the Tikhonov regularisation to retrieve stability of the method.</p>
 <p>Here we report the algorithm for scalar fields (without regularisation).</p>
 <a class="bg-primary mb-1 reference internal image-reference" href="../_images/GEIM-algo.png"><img alt="GEIM-algo" class="bg-primary mb-1 align-center" src="../_images/GEIM-algo.png" style="width: 1000px;" /></a>
+<section id="tikhonov-regularisation">
+<h2>Tikhonov regularisation<a class="headerlink" href="#tikhonov-regularisation" title="Permalink to this heading">#</a></h2>
+<p>As proved in <span id="id2">[<a class="reference internal" href="../biblio.html#id27" title="J. P. Argaud, B. Bouriquet, H. Gong, Y. Maday, and O. Mula. Stabilization of (G)EIM in Presence of Measurement Noise: Application to Nuclear Reactor Physics. In Marco L. Bittencourt, Ney A. Dumont, and Jan S. Hesthaven, editors, Spectral and High Order Methods for Partial Differential Equations ICOSAHOM 2016, 133–145. Cham, 2017. Springer International Publishing. doi:10.48550/arXiv.1611.02219.">1</a>]</span>, the GEIM algorithm is not robust in presence of random noise, hence stabilisation techniques are required. Following the work of <span id="id3">[<a class="reference internal" href="../biblio.html#id20" title="Carolina Introini, Simone Cavalleri, Stefano Lorenzi, Stefano Riva, and Antonio Cammi. Stabilization of generalized empirical interpolation method (geim) in presence of noise: a novel approach based on tikhonov regularization. Computer Methods in Applied Mechanics and Engineering, 404:115773, 2023. URL: https://www.sciencedirect.com/science/article/pii/S0045782522007290, doi:https://doi.org/10.1016/j.cma.2022.115773.">12</a>]</span> which adopts the Tikhonov regularisation to retrieve stability of the method, in this library this method is used to keep the error bounded and to retrieve robustness in presence of noisy data.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">

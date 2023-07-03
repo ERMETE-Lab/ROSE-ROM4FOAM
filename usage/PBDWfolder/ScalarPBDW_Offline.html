@@ -120,6 +120,11 @@ const thebe_selector_output = ".output, .cell_output"
    Introduction
   </a>
  </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../installation_notes.html">
+   Installation notes
+  </a>
+ </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
@@ -457,8 +462,9 @@ There has a limitation (based on the RAM capabilities) that samples every <span 
 			<span class="n">max_relative_L2_error</span><span class="o">.</span><span class="n">txt</span>	<span class="o">&lt;----</span> <span class="n">Relative</span> <span class="n">reconstruction</span> <span class="n">error</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Train</span> <span class="n">Set</span>
 			<span class="n">max_absolute_L2_error</span><span class="o">.</span><span class="n">txt</span>	<span class="o">&lt;----</span> <span class="n">Absolute</span> <span class="n">reconstruction</span> <span class="n">error</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Train</span> <span class="n">Set</span>
 			<span class="p">(</span><span class="n">fieldName</span><span class="p">)</span><span class="n">_Coefficients</span><span class="o">.</span><span class="n">txt</span>	<span class="o">&lt;----</span> <span class="n">Reduced</span> <span class="n">basis</span> <span class="n">coefficients</span>
-			<span class="n">matrixB</span><span class="o">.</span><span class="n">txt</span>			<span class="o">&lt;----</span> <span class="n">Only</span> <span class="k">for</span> <span class="n">GEIM</span>
-			<span class="n">checkMatrix</span><span class="o">.</span><span class="n">txt</span>			<span class="o">&lt;----</span> <span class="n">matrix</span> <span class="k">with</span> <span class="p">(</span><span class="n">zeta_i</span><span class="p">,</span> <span class="n">zeta_j</span><span class="p">)</span><span class="n">_L2</span> <span class="n">to</span> <span class="n">check</span> <span class="n">the</span> <span class="n">orthonormality</span> <span class="n">of</span> <span class="n">the</span> <span class="n">basis</span> <span class="n">functions</span>
+			<span class="p">(</span><span class="n">fieldName</span><span class="p">)</span><span class="n">matrixB</span><span class="o">.</span><span class="n">txt</span>		<span class="o">&lt;----</span> <span class="n">Only</span> <span class="k">for</span> <span class="n">GEIM</span>
+			<span class="n">InfSupConstant</span><span class="o">.</span><span class="n">txt</span>		<span class="o">&lt;----</span> <span class="n">Only</span> <span class="k">for</span> <span class="n">SGREEDY</span>
+			<span class="p">(</span><span class="n">fieldName</span><span class="p">)</span><span class="n">orthog_matrix</span><span class="o">.</span><span class="n">txt</span>	<span class="o">&lt;----</span> <span class="n">matrix</span> <span class="k">with</span> <span class="p">(</span><span class="n">zeta_i</span><span class="p">,</span> <span class="n">zeta_j</span><span class="p">)</span><span class="n">_L2</span> <span class="n">to</span> <span class="n">check</span> <span class="n">the</span> <span class="n">orthonormality</span> <span class="n">of</span> <span class="n">the</span> <span class="n">basis</span> <span class="n">functions</span>
 </pre></div>
 </div>
 <p>The absolute and relative error are computed as</p>
