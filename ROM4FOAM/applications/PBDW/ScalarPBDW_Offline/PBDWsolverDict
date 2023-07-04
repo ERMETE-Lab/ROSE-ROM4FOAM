@@ -1,0 +1,35 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      GEIMsolverDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Offline_parameters
+{
+    field      T;
+    BasisNumber   50;       // maximum size of the reduced basis
+    foldersList ("Folder_1" "Folder_2") ;
+    
+    // The following are specific for the GEIM;
+    MaxSensorsNumber 20;    
+    SensorsVariance 0.0001;
+    /*
+    SensorsPositions 
+    (
+		(0 3.09 0.29) 
+	);
+    */
+} 
+
+
+// ************************************************************************* //

@@ -1,0 +1,3 @@
+ScalarTR-GEIM.C
+
+EXE = $(FOAM_USER_APPBIN)/ScalarTR-GEIM

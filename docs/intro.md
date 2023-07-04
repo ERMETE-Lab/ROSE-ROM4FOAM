@@ -1,6 +1,6 @@
 # Reduced Order Modelling for OpenFoam (ROM4FOAM)
 
-**Authors**: ???
+**Authors**: Carolina Introini - Stefano Riva - Stefano Lorenzi - Antonio Cammi
 
 This book collects some documentation and tutorials for the ROM4FOAM library built in [OpenFOAM-v6](https://openfoam.org/version/6/), including a brief theoretical background of the theory of Reduced Order Modelling. This library is part of the Reduced Order multi-phySics data-drivEn ([ROSE](https://github.com/ROSE-Polimi)) framework. This work has been carried out at the [Nuclear Reactors Group](https://www.nuclearenergy.polimi.it) at [Politecnico di Milano](https://polimi.it), under the supervision of Prof. Antonio Cammi.
 

@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "ScalarPBDW_Offline.C": "cpp",
+        "iosfwd": "cpp"
+    }
+}

@@ -1,1 +1,1 @@
-rm -r Case_* Residual_Fig
+rm -r Case_* Residual_Fig parameters.txt

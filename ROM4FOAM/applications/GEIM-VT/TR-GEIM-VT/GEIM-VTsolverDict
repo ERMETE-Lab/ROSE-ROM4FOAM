@@ -1,0 +1,32 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  6
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "system";
+    object      GEIM-VTsolverDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+Online_parameters
+{
+           
+	MaxSensorsNumber 20;         
+	foldersList ("Folder_3"	"Folder_4") ;  
+	noise_std   0.001;		
+    N_Repeated_Experiments 10;                  
+} 
+
+
+
+    
+   
+
+
+// ************************************************************************* //

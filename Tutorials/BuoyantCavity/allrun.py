@@ -114,7 +114,10 @@ folder_list = list()
 caseI = 0
 for ReI, RiI in parameters[:, :]:
 
-        folder_name =f'"Case_{caseI+0:03}_Re{ReI:.2f}_Ri{RiI:.2f}"\n'
+        if train is False:
+            folder_name =f'"TestSet/Case_{caseI+0:03}_Re{ReI:.2f}_Ri{RiI:.2f}"\n'
+        else:
+            folder_name =f'"Case_{caseI+0:03}_Re{ReI:.2f}_Ri{RiI:.2f}"\n'
         folder_list.append(folder_name)
         caseI += 1
 

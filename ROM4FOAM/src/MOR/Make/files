@@ -1,0 +1,3 @@
+MOR_Tools.C
+
+LIB = $(FOAM_USER_LIBBIN)/libMOR
