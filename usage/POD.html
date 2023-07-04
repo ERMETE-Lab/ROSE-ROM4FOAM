@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
   <!-- Pre-loaded scripts that we'll load fully later -->
@@ -53,6 +54,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scalar Field: Offline" href="PODfolder/ScalarPOD_Offline.html" />
+    <link rel="prev" title="Installation notes" href="installation_notes.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en">
     
@@ -114,7 +117,7 @@ const thebe_selector_output = ".output, .cell_output"
   How to use the solvers?
  </span>
 </p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Introduction.html">
    Introduction
@@ -124,6 +127,195 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="installation_notes.html">
    Installation notes
   </a>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="current reference internal" href="#">
+   POD - Proper Orthogonal Decomposition
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PODfolder/ScalarPOD_Offline.html">
+     Scalar Field: Offline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PODfolder/ScalarPOD_Online.html">
+     Scalar Field: Online
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PODfolder/ScalarPODInterp_Online.html">
+     Scalar Field: Interpolation Online
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PODfolder/VectorialPOD_Offline.html">
+     Vectorial Field: Offline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PODfolder/VectorialPOD_Online.html">
+     Vectorial Field: Online
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PODfolder/VectorialPODInterp_Online.html">
+     Vectorial Field: Interpolation Online
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="EIM.html">
+   EIM - Empirical Interpolation Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EIMfolder/ScalarEIM_Offline.html">
+     Scalar Field: Offline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EIMfolder/ScalarEIM_Online.html">
+     Scalar Field: Online
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EIMfolder/VectorialEIM_Offline.html">
+     Vectorial Field: Offline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="EIMfolder/VectorialEIM_Online.html">
+     Vectorial Field: Offline
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="GEIM.html">
+   GEIM - Generalised Empirical Interpolation Method
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="GEIMfolder/ScalarGEIM_Offline.html">
+     Scalar Field: Offline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="GEIMfolder/ScalarGEIM_Online.html">
+     Scalar Field: Online
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="GEIMfolder/ScalarTR-GEIM.html">
+     Scalar Field: Online - Tikhonov
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="GEIM-VT.html">
+   GEIM-VT - Generalised Empirical Interpolation Method Vectorial Treatment
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="GEIM-VTfolder/GEIM-VT_Offline.html">
+     Offline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="GEIM-VTfolder/GEIM-VT_Online.html">
+     Online
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="GEIM-VTfolder/TR-GEIM-VT.html">
+     Online - Tikhonov
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="PBDW.html">
+   PBDW - Parameterised-Background Data-Weak formulation
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PBDWfolder/ScalarPBDW_Offline.html">
+     Scalar Field: Offline
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="PBDWfolder/ScalarPBDW_Online.html">
+     Scalar Field: Online
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tutorials
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../Tutorials/BuoyantCavity/problem.html">
+   Differentially Heated Cavity
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tutorials/BuoyantCavity/perform_offline.html">
+     How to perform the offline phase?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tutorials/BuoyantCavity/offline_results.html">
+     Results of the offline phase
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tutorials/BuoyantCavity/perform_online.html">
+     How to perform the online phase?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../Tutorials/BuoyantCavity/online_results.html">
+     Results of the online phase
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 <p aria-level="2" class="caption" role="heading">
@@ -344,6 +536,8 @@ u\simeq \sum_{n=1}^N \alpha_n\,\phi_n\qquad \qquad \alpha_n = \int_\Omega u\,\ph
 <li><p>ScalarPODInterp_Online</p></li>
 <li><p>VectorialPODInterp_Online</p></li>
 </ul>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -373,6 +567,20 @@ u\simeq \sum_{n=1}^N \alpha_n\,\phi_n\qquad \qquad \alpha_n = \int_\Omega u\,\ph
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="installation_notes.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Installation notes</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="PODfolder/ScalarPOD_Offline.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Scalar Field: Offline</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
             </footer>
         </div>
@@ -380,7 +588,7 @@ u\simeq \sum_{n=1}^N \alpha_n\,\phi_n\qquad \qquad \alpha_n = \int_\Omega u\,\ph
     <div class="footer-content row">
         <footer class="col footer"><p>
   
-    By Stefano Riva - Carolina Introini<br/>
+    By Carolina Introini - Stefano Riva - Stefano Lorenzi - Antonio Cammi<br/>
   
       &copy; Copyright 2023.<br/>
 </p>
